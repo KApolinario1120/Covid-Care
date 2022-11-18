@@ -16,7 +16,7 @@ public interface JournalDao {
     Journal getJournalByUserId(int userId);
 
     //Update a journal entry
-    Journal updateJournalEntry(String notes);
+    boolean updateJournalEntry(Journal journal);
 
     //Delete a journal entry
     Journal deleteJournal(Journal journal, int journalId);

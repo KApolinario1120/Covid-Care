@@ -59,7 +59,7 @@ public class JdbcUserDao implements UserDao {
         }
 
     }
-
+    
     @Override
     public int findIdByUserName(String userName) {
         if (userName == null) throw new IllegalArgumentException("Username cannot be null");

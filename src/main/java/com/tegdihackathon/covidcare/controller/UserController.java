@@ -20,28 +20,44 @@ public class UserController {
     }
 
     @RequestMapping(path = "", method = RequestMethod.GET)
-    public List<User> ListAllUsers() {
+    public List<User> getAllUsers() {
         return userDao.getAllUsers();
     }
 
-    @RequestMapping(path = "/{userId}", method = RequestMethod.GET)
-    public int getIdByUserName(@PathVariable int userId) {
+    @RequestMapping(path = "/userId/{userId}", method = RequestMethod.GET)
+    public User getUserById(@PathVariable int userId) {
         User user = userDao.getUserById(userId);
-        if (user == null) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found.");
-        } else {
-            return user.getUserId();
-        }
-    }
-    @RequestMapping (path = "/{userName}", method = RequestMethod.GET)
-    public User findUserByUserName(String userName) {
-        User user = userDao.findIdByUserName(userName);
         if (user == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found.");
         } else {
             return user;
         }
     }
+
+//    @RequestMapping(path = "/")
+//
+//    //Create a user
+//    boolean createUser(String userName, String password);
+//
+//    //get a user by username
+//    User findIdByUserName(String userName);
+//
+//    //Update a user
+//    User updateUser(User user, String userName);
+//
+//    //Delete a user
+//    User deleteUser(User user, String username);
+
+
+//    @RequestMapping (path = "/{userName}", method = RequestMethod.GET)
+//    public User findUserByUserName(String userName) {
+//        User user = userDao.findIdByUserName(userName);
+//        if (user == null) {
+//            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found.");
+//        } else {
+//            return user;
+//        }
+//    }
     }
 
 

@@ -4,6 +4,7 @@ import com.tegdihackathon.covidcare.model.Symptom;
 import com.tegdihackathon.covidcare.dao.SymptomDao;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -21,7 +22,7 @@ public class SymptomController {
         return symptomDao.getAllSymptoms();
     }
 
-    @RequestMapping(path = "s/{journalId}", method = RequestMethod.GET)
+    @RequestMapping(path = "/{journalId}", method = RequestMethod.GET)
     public List<Symptom> getAllSymptomsByJournalId(@PathVariable int journalId){
         return symptomDao.getAllSymptomsByJournalId(journalId);
     }
@@ -31,8 +32,8 @@ public class SymptomController {
         return symptomDao.getSymptomById(symptomId);
     }
 
-    @RequestMapping(path = "/{insert}", method = RequestMethod.POST)
-    void insertSymptomIntoJournalSymptom(@PathVariable int journalId, @PathVariable int symptomId){
-        symptomDao.insertSymptomIntoJournalSymptom(journalId, symptomId);
+    @RequestMapping(path = "/{journalId}", method = RequestMethod.POST)
+    void insertSymptomIntoJournalSymptom(@PathVariable int journalId, @Valid @RequestBody List<Symptom> symptomList){
+        symptomDao.populateJournalSymptomTable(journalId, symptomList);
     }
 }

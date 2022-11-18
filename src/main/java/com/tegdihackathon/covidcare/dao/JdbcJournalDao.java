@@ -1,8 +1,18 @@
 package com.tegdihackathon.covidcare.dao;
 
 import com.tegdihackathon.covidcare.model.Journal;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
 
+@Component
 public class JdbcJournalDao implements JournalDao {
+
+    private JdbcTemplate jdbcTemplate;
+
+    public JdbcJournalDao(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
+
 
 
     @Override

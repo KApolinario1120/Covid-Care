@@ -1,10 +1,19 @@
 package com.tegdihackathon.covidcare.dao;
 
 import com.tegdihackathon.covidcare.model.Symptom;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class JdbcSymptomDao implements SymptomDao {
+
+    private JdbcTemplate jdbcTemplate;
+
+    public JdbcSymptomDao(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
 
     @Override

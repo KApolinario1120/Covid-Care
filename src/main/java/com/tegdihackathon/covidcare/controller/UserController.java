@@ -25,7 +25,7 @@ public class UserController {
         return userDao.getAllUsers();
     }
 
-    @RequestMapping(path = "/userId/{userId}", method = RequestMethod.GET)
+    @RequestMapping(path = "/{userId}", method = RequestMethod.GET)
     public User getUserById(@PathVariable int userId) {
         User user = userDao.getUserById(userId);
         if (user == null) {
@@ -38,10 +38,15 @@ public class UserController {
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public void register(@Valid @RequestBody User newUser) {
-        if (!userDao.createUser(newUser.getUserName(), newUser.getPassword())) {
+        if (!userDao.createUser(newUser.getUsername(), newUser.getPassword())) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User registration failed.");
         }
     }
+
+    @RequestMapping(path = "/userId/{username}", method = RequestMethod.GET)
+    public int findIdByUsername(String username) {return userDao.findIdByUsername(username);
+    }
+
 
 //
 //    //get a user ID by username

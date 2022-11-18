@@ -3,7 +3,7 @@ package com.tegdihackathon.covidcare.model;
 public class User {
 
     private int userId;
-    private String userName;
+    private String username;
     private String password;
 
     public String getPassword() {
@@ -22,11 +22,11 @@ public class User {
         this.userId = userId;
     }
 
-    public String getUserName() {
-        return this.userName;
+    public String getUsername() {
+        return this.username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

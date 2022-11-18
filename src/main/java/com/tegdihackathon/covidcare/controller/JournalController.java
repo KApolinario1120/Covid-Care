@@ -22,7 +22,7 @@ public class JournalController {
         journalDao.createJournal(journal);
     }
 
-    
+
 
 //
 //    //Retrieve a journal entry by id

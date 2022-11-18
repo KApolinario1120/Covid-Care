@@ -53,6 +53,7 @@ public class JdbcJournalDao implements JournalDao {
 
     @Override
     public Journal deleteJournal(int journalId) {
+        String sql = "";
         return null;
     }
 

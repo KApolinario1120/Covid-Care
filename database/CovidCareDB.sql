@@ -33,8 +33,8 @@ CREATE TABLE symptom (
 -- )
 
 CREATE TABLE journal_symptom (
-    journal_id int NOT NULL primary key,
-    symptom_id int NOT NULL primary key,
+    journal_id int NOT NULL,
+    symptom_id int NOT NULL,
     CONSTRAINT journal_symptom_pkey PRIMARY KEY (journal_id, symptom_id),
     foreign key (journal_id) references journal (journal_id),
     foreign key (symptom_id) references symptom (symptom_id)

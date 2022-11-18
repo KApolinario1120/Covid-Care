@@ -11,6 +11,10 @@ public class Journal {
     private boolean testedPositive;
     private String notes;
 
+    public Journal() {
+
+    }
+
     public Journal(int journalId, int userId, double temperature, LocalDate journalDate, boolean testedPositive, String notes) {
         this.journalId = journalId;
         this.userId = userId;

@@ -52,9 +52,10 @@ public class JdbcJournalDao implements JournalDao {
     }
 
     @Override
-    public Journal deleteJournal(int journalId) {
-        String sql = "";
-        return null;
+    public void deleteJournal(int journalId) {
+        String sqlJournalSymptom = "DELETE FROM journal_symptom WHERE journal_id = ?";
+        String sqlJournal = "DELETE FROM journal WHERE journal_id = ?";
+        jdbcTemplate.update(sqlJournalSymptom + sqlJournal, journalId);
     }
 
     private Journal mapRowToJournal(SqlRowSet result) {

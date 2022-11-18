@@ -15,8 +15,7 @@ public class JdbcSymptomDao implements SymptomDao {
     public JdbcSymptomDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
-
-
+    
 //    @Override//
 //    public Symptom createSymptom(String symptomName) {
 //        Symptom symptom = null;

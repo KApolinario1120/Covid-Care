@@ -70,7 +70,6 @@ public class JdbcUserDao implements UserDao {
         } catch (NullPointerException | EmptyResultDataAccessException e) {
             throw new RuntimeException("User " + username + " was not found");
         }
-
         return userId;
     }
 

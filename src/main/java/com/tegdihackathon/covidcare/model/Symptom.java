@@ -4,12 +4,16 @@ public class Symptom {
 
     private int symptomId;
     private String symptomName;
-    private boolean hasSymptom;
 
-    public Symptom(int symptomId, String symptomName, boolean symptom) {
+    private String symptomType;
+
+    public Symptom(int symptomId, String symptomName, String symptomType) {
         this.symptomId = symptomId;
         this.symptomName = symptomName;
-        this.hasSymptom = symptom;
+        this.symptomType = symptomType;
+    }
+
+    public Symptom() {
     }
 
     public int getSymptomId() {
@@ -28,11 +32,10 @@ public class Symptom {
         this.symptomName = symptomName;
     }
 
-    public boolean hasSymptom() {
-        return this.hasSymptom;
-    }
+    public void setSymptomName(String symptomName) { this.symptomName = symptomName; }
 
-    public void setHasSymptom(boolean hasSymptom) {
-        this.hasSymptom = hasSymptom;
-    }
+    public String getSymptomType() { return symptomType;}
+
+    public void setSymptomType(String symptomType) { this.symptomType = symptomType; }
+
 }

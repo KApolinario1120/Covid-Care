@@ -17,18 +17,28 @@ public class JdbcSymptomDao implements SymptomDao {
     }
 
 
-    @Override//
-    public Symptom createSymptom(String symptomName) {
-        Symptom symptom = null;
-        String sql = "INSERT INTO symptom (symptom_name) VALUES (?) RETURNING symptom_name";
-        String newSymptom = jdbcTemplate.queryForObject(sql, String.class, symptomName)
-                if (newSymptom == null) {
-                    ;
-                }
-    }
+//    @Override//
+//    public Symptom createSymptom(String symptomName) {
+//        Symptom symptom = null;
+//        String sql = "INSERT INTO symptom (symptom_name) VALUES (?) RETURNING symptom_name";
+//        String newSymptom = jdbcTemplate.queryForObject(sql, String.class, symptomName)
+//                if (newSymptom == null) {
+//                    ;
+//                }
+//    }
 
     @Override
     public List<Symptom> getAllSymptoms() {
+        return null;
+    }
+
+    @Override
+    public void insertSymptomIntoJournalSymptom(int journalId, int symptomId) {
+
+    }
+
+    @Override
+    public List<Symptom> getAllSymptomsByJournalId(int journalId) {
         return null;
     }
 
@@ -37,20 +47,21 @@ public class JdbcSymptomDao implements SymptomDao {
         return null;
     }
 
-    @Override//
-    public Symptom updateSymptomStatus(boolean hasSymptom) {
-        return null;
-    }
-
-    @Override
-    public Symptom deleteSymptom(String symptomName) {
-        return null;
-    }
+//    @Override//
+//    public Symptom updateSymptomStatus(boolean hasSymptom) {
+//        return null;
+//    }
+//
+//    @Override
+//    public Symptom deleteSymptom(String symptomName) {
+//        return null;
+//    }
 
     public Symptom mapRowToSymptom(SqlRowSet result) {
         Symptom symptom = new Symptom();
-        symptom.setHasSymptom(result.getBoolean("has_symptom"));
+        symptom.setSymptomId(result.getInt("symptom_id"));
         symptom.setName(result.getString("symptom_name"));
-        symptom.
+        symptom.setSymptomType(result.getString("symptom_type"));
+        return symptom;
     }
 }

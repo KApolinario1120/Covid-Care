@@ -24,12 +24,24 @@ public class JdbcJournalDao implements JournalDao {
 
     @Override
     public Journal getJournalByJournalId(int journalId) {
-        return null;
+        Journal journal = null;
+        String sql = "SELECT * FROM journal WHERE journal_id = ?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, journalId);
+        while (results.next()) {
+            journal = mapRowToJournal(results);
+        }
+        return journal;
     }
 
     @Override
     public Journal getJournalByUserId(int userId) {
-        return null;
+        Journal journal = null;
+        String sql = "SELECT * FROM journal WHERE user_id = ?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
+        while (results.next()) {
+            journal = mapRowToJournal(results);
+        }
+        return journal;
     }
 
     @Override

@@ -47,7 +47,7 @@ public class JdbcJournalDao implements JournalDao {
     @Override
     public boolean updateJournalEntry(Journal journal) {
         String sql = "UPDATE public.journal SET tested_positive = ?, notes = ?, temperature = ? WHERE journal_id = ?";
-        int numberOfRows = jdbcTemplate.update(sql, journal.isTestedPositive(), journal.getNotes(), journal.getTemperature());
+        int numberOfRows = jdbcTemplate.update(sql, journal.isTestedPositive(), journal.getNotes(), journal.getTemperature(), journal.getJournalId());
         return numberOfRows == 1;
     }
 

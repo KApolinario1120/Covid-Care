@@ -6,18 +6,21 @@ import java.util.List;
 
 public interface SymptomDao {
 
-    //Create a symptom
-    Symptom createSymptom(String symptomName);
+    //Create a symptom - DON'T THINK WE NEED
+//    Symptom createSymptom(String symptomName);
 
-    //Retrieve a list of all symptoms
-    List <Symptom> getAllSymptoms();
+    //Retrieve a list of all symptoms by Id
+    List <Symptom> getAllSymptomsByJournalId(int journalId);
 
     //get a symptom by id
     Symptom getSymptomById(int symptomId);
 
-    //Update symptom status
-    Symptom updateSymptomStatus(boolean hasSymptom);
+    //Retrieve a list of all symptoms
+    List <Symptom> getAllSymptoms();
 
-    //Delete a symptom
-    Symptom deleteSymptom(String symptomName);
+    //Update symptom status
+    void insertSymptomIntoJournalSymptom(int journalId, int symptomId);
+
+    //Delete a symptom - DON'T THINK WE NEED
+//    Symptom deleteSymptom(String symptomName);
 }

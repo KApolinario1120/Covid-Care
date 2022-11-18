@@ -5,6 +5,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -28,12 +29,21 @@ public class JdbcSymptomDao implements SymptomDao {
 
     @Override
     public List<Symptom> getAllSymptoms() {
-        return null;
+        String sql = "SELECT * FROM symptom;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        List<Symptom> symptoms = new ArrayList<>();
+        while(results.next()){
+            symptoms.add(mapRowToSymptom(results));
+        }
+        return symptoms;
     }
 
     @Override
-    public void insertSymptomIntoJournalSymptom(int journalId, int symptomId) {
-
+    public void populateJournalSymptomTable(int journalId, List<Symptom> symptomList){
+        for (Symptom symptom: symptomList) {
+            String sql = "INSERT INTO journal_table (journal_id, symptom_id) VALUES (?, ?);";
+            jdbcTemplate.update(sql, journalId, symptom.getSymptomId());
+        }
     }
 
     @Override

@@ -19,7 +19,7 @@ public interface SymptomDao {
     List <Symptom> getAllSymptoms();
 
     //Update symptom status
-    void insertSymptomIntoJournalSymptom(int journalId, int symptomId);
+    void populateJournalSymptomTable(int journalId, List<Symptom> symptomList);
 
     //Delete a symptom - DON'T THINK WE NEED
 //    Symptom deleteSymptom(String symptomName);

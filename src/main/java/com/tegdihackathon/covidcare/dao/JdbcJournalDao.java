@@ -2,6 +2,7 @@ package com.tegdihackathon.covidcare.dao;
 
 import com.tegdihackathon.covidcare.model.Journal;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -17,6 +18,8 @@ public class JdbcJournalDao implements JournalDao {
 
     @Override
     public Journal createJournal(Journal journal) {
+        String sql = "INSERT INTO public.journal(user_id, journal_date, tested_positive, notes, temperature) VALUES (?,?,?,?,?)";
+        Journal newJournalId = jdbcTemplate.queryForObject(sql, Integer.class, journalId, journal.getUserId(), temperature, journalDate, testedPositive, notes);
         return null;
     }
 
@@ -31,12 +34,27 @@ public class JdbcJournalDao implements JournalDao {
     }
 
     @Override
-    public Journal updateJournalEntry(String notes) {
-        return null;
+    public boolean updateJournalEntry(Journal journal) {
+        String sql = "UPDATE public.journal SET tested_positive = ?, notes = ?, temperature = ? WHERE journal_id = ?";
+        int numberOfRows = jdbcTemplate.update(sql, journal.isTestedPositive(), journal.getNotes(), journal.getTemperature());
+        return numberOfRows == 1;
     }
 
     @Override
     public Journal deleteJournal(Journal journal, int journalId) {
         return null;
     }
+
+    private Journal mapRowToJournal(SqlRowSet result) {
+        Journal journal = new Journal();
+        journal.setJournalId(result.getInt("journal_id"));
+        journal.setUserId(result.getInt("user_id"));
+        journal.setJournalDate(result.getDate("journal_date").toLocalDate());
+        journal.setTestedPositive(result.getBoolean("tested_positive"));
+        journal.setNotes(result.getString("notes"));
+        journal.setTemperature(result.getDouble("temperature"));
+        return journal;
+
+    }
+
 }

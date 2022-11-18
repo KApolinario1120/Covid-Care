@@ -6,7 +6,7 @@ import java.util.List;
 public interface UserDao {
 
     //Create a user
-    User createUser(String userName, int userId, String password);
+    boolean createUser(String userName, String password);
 
     //Retrieve a list of all users
     List<User> getAllUsers();
@@ -15,7 +15,7 @@ public interface UserDao {
     User getUserById(int userId);
 
     //get a user by username
-    User getUserByUserName(String userName);
+    int findIdByUserName(String userName);
 
     //Update a user
     User updateUser(User user, String userName);

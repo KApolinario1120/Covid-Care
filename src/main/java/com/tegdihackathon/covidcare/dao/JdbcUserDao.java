@@ -1,6 +1,7 @@
 package com.tegdihackathon.covidcare.dao;
 
 import com.tegdihackathon.covidcare.model.User;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -20,14 +21,31 @@ public class JdbcUserDao implements UserDao {
 
 
     @Override
-    public User createUser(String userName, int userId, String password) {
-       return null;
+    public boolean createUser(String userName, String password) {
+
+        // create user
+        String sql = "INSERT INTO public.care_user (username, password) VALUES (?, ?) RETURNING user_id";
+        Integer newUserId = jdbcTemplate.queryForObject(sql, Integer.class, userName, password);
+
+        if (newUserId == null) {
+            return false;
+        } else {
+            return true;
+        }
+
     }
 
     @Override
     public List<User> getAllUsers() {
-        List<User>
-        return null;
+        List<User> users = new ArrayList<>();
+        String sql = "SELECT user_id, username FROM public.care_user";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        while (results.next()) {
+            User user = mapRowToUser(results);
+            users.add(user);
+        }
+        return users;
     }
 
     @Override
@@ -43,8 +61,17 @@ public class JdbcUserDao implements UserDao {
     }
 
     @Override
-    public User getUserByUserName(String userName) {
-        return null;
+    public int findIdByUserName(String userName) {
+        if (userName == null) throw new IllegalArgumentException("Username cannot be null");
+
+        int userId;
+        try {
+            userId = jdbcTemplate.queryForObject("SELECT user_id FROM public.care_user WHERE username = ?", int.class, userName);
+        } catch (NullPointerException | EmptyResultDataAccessException e) {
+            throw new RuntimeException("User " + userName + " was not found");
+        }
+
+        return userId;
     }
 
     @Override

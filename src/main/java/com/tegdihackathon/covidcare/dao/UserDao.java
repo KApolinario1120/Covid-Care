@@ -14,7 +14,7 @@ public interface UserDao {
     //Get a user by id
     User getUserById(int userId);
 
-    //get a user by username
+    //get a user ID by username
     int findIdByUserName(String userName);
 
     //Update a user

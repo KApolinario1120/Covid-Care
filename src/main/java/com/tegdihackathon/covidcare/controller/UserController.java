@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -34,12 +35,16 @@ public class UserController {
         }
     }
 
-//    @RequestMapping(path = "/")
+    @ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    public void register(@Valid @RequestBody User newUser) {
+        if (!userDao.createUser(newUser.getUserName(), newUser.getPassword())) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User registration failed.");
+        }
+    }
+
 //
-//    //Create a user
-//    boolean createUser(String userName, String password);
-//
-//    //get a user by username
+//    //get a user ID by username
 //    User findIdByUserName(String userName);
 //
 //    //Update a user

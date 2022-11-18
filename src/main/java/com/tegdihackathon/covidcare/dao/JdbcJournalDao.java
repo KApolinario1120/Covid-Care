@@ -52,7 +52,7 @@ public class JdbcJournalDao implements JournalDao {
     }
 
     @Override
-    public Journal deleteJournal(Journal journal, int journalId) {
+    public Journal deleteJournal(int journalId) {
         return null;
     }
 

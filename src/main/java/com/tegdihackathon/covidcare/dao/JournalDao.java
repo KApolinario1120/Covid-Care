@@ -17,5 +17,5 @@ public interface JournalDao {
     boolean updateJournalEntry(Journal journal);
 
     //Delete a journal entry
-    Journal deleteJournal(Journal journal, int journalId);
+    Journal deleteJournal(int journalId);
 }

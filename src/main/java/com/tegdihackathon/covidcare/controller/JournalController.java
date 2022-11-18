@@ -2,10 +2,8 @@ package com.tegdihackathon.covidcare.controller;
 
 import com.tegdihackathon.covidcare.dao.JournalDao;
 import com.tegdihackathon.covidcare.model.Journal;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -42,10 +40,11 @@ public class JournalController {
         journalDao.createJournal(journal);
     }
 
-//    //Update a journal entry
-//    boolean updateJournalEntry(Journal journal);
-//
-//    //Delete a journal entry
-//    Journal deleteJournal(Journal journal, int journalId);
+    //Delete a journal entry
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @RequestMapping(path = "/delete/{journalId}", method = RequestMethod.DELETE)
+    public void delete(@PathVariable int journalId) {
+        journalDao.deleteJournal(journalId);
+    }
 
 }

@@ -31,4 +31,64 @@ CREATE TABLE journal_symptom (
     foreign key (symptom_id) references symptom (symptom_id)
 );
 
+INSERT INTO public.symptom(symptom_name, symptom_type)
+VALUES ('fatigue', 'general');
+    
+INSERT INTO public.symptom(symptom_name, symptom_type)
+VALUES ('post-exertional malaise', 'general');
+    
+INSERT INTO public.symptom(symptom_name, symptom_type)
+VALUES ('fever', 'general');
+
+INSERT INTO public.symptom(symptom_name, symptom_type)
+VALUES ('shortness of breath', 'respiratory, cardiovascular');
+
+INSERT INTO public.symptom(symptom_name, symptom_type)
+VALUES ('cough', 'respiratory, cardiovascular');
+
+INSERT INTO public.symptom(symptom_name, symptom_type)
+VALUES ('chest pain', 'respiratory, cardiovascular');
+
+INSERT INTO public.symptom(symptom_name, symptom_type)
+VALUES ('heart palpitations', 'respiratory, cardiovascular');
+
+INSERT INTO public.symptom(symptom_name, symptom_type)
+VALUES ('difficulty thinking or concentrating', 'neurological');
+
+INSERT INTO public.symptom(symptom_name, symptom_type)
+VALUES ('headache', 'neurological');
+
+INSERT INTO public.symptom(symptom_name, symptom_type)
+VALUES ('sleep problems', 'neurological');
+
+INSERT INTO public.symptom(symptom_name, symptom_type)
+VALUES ('dizziness', 'neurological');
+
+INSERT INTO public.symptom(symptom_name, symptom_type)
+VALUES ('dizziness when standing', 'neurological');
+
+INSERT INTO public.symptom(symptom_name, symptom_type)
+VALUES ('pins-and-needles', 'neurological');
+
+INSERT INTO public.symptom(symptom_name, symptom_type)
+VALUES ('change in taste or smell', 'neurological');
+
+INSERT INTO public.symptom(symptom_name, symptom_type)
+VALUES ('depression or anxiety', 'neurological');
+
+INSERT INTO public.symptom(symptom_name, symptom_type)
+VALUES ('diarrhea', 'digestive');
+
+INSERT INTO public.symptom(symptom_name, symptom_type)
+VALUES ('stomach pain', 'digestive');
+
+INSERT INTO public.symptom(symptom_name, symptom_type)
+VALUES ('joint or muscle pain', 'other');
+
+INSERT INTO public.symptom(symptom_name, symptom_type)
+VALUES ('rash', 'other');
+
+INSERT INTO public.symptom(symptom_name, symptom_type)
+VALUES ('changes in menstrual cycles', 'other');
+
 COMMIT TRANSACTION;

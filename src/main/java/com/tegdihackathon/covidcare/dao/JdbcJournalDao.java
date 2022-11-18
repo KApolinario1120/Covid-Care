@@ -17,10 +17,9 @@ public class JdbcJournalDao implements JournalDao {
 
 
     @Override
-    public Journal createJournal(Journal journal) {
+    public void createJournal(Journal journal) {
         String sql = "INSERT INTO public.journal(user_id, journal_date, tested_positive, notes, temperature) VALUES (?,?,?,?,?)";
-        Journal newJournalId = jdbcTemplate.queryForObject(sql, Integer.class, journalId, journal.getUserId(), temperature, journalDate, testedPositive, notes);
-        return null;
+        jdbcTemplate.update(sql, journal.getUserId(), journal.getJournalDate(), journal.isTestedPositive(), journal.getNotes(), journal.getTemperature());
     }
 
     @Override

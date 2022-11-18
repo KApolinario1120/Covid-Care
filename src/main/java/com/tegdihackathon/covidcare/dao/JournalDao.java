@@ -2,12 +2,10 @@ package com.tegdihackathon.covidcare.dao;
 
 import com.tegdihackathon.covidcare.model.Journal;
 
-import java.util.List;
-
 public interface JournalDao {
 
     //Create a journal entry
-    Journal createJournal(Journal journal);
+    void createJournal(Journal journal);
 
     //Retrieve a journal entry by id
     Journal getJournalByJournalId(int journalId);

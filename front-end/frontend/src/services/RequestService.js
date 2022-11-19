@@ -10,7 +10,7 @@ export default {
   //user methods below
 
   getAllUsers() {
-    return axios.get('/user')
+    return axios.get(`/user`)
   },
 
   getUserById(userId) {
@@ -24,21 +24,54 @@ export default {
     return http.get(`/user/userId/${username}`)
   },
 
-  //
+  //symptom methods below
 
-  getRecipes() {
-    return http.get(`/recipes/all`);
+  getAllSymptoms() {
+    return http.get(`/symptom`);
   },
-  addRecipe(recipe) {
-    return http.post(`/recipes/add`, recipe, {headers: authHeader()})
+
+  getAllSymptomsByJournalId(journalId) {
+    return http.get(`/symptom/all/${journalId}`)
   },
-  editRecipe(recipe){
-    return http.put(`/recipes/edit`, recipe, {headers: authHeader()})
+
+  getSymptomById(symptomId) {
+    return http.get(`/symptom/${symptomId}`)
   },
-  searchRecipe(id) {
-    return http.get(`/recipes/search/${id}`, {headers: authHeader()})
+
+  insertSymptomIntoJournalSymptom(journalId, symptomList) {
+    return http.post(`/symptom/journalId/${journalId}`, symptomList)
   },
-  deleteRecipe(recipe) {
-    return http.delete(`/recipes/delete`, {headers: authHeader(), data: recipe})
-  }
+
+  //journal methods below
+
+  getJournalByJournalId() {
+    return http.get(`/symptom`);
+  },
+
+  getJournalByUserId(journalId) {
+    return http.get(`/symptom/all/${journalId}`)
+  },
+
+  updateJournalEntry(symptomId) {
+    return http.get(`/symptom/${symptomId}`)
+  },
+
+  createJournalEntry(journalId, symptomList) {
+    return http.post(`/symptom/journalId/${journalId}`, symptomList)
+  },
+
+  
+
+
+
 }
+
+// getAllSymptomsByJournalId(journalId) {
+//   return http.post(`/recipes/add`, recipe, {headers: authHeader()})
+// },
+// getSymptomById(symptomId){
+//   return http.put(`/recipes/edit`, recipe, {headers: authHeader()})
+// },
+// insertSymptomIntoJournalSymptom(recipe) {
+//   return http.delete(`/recipes/delete`, {headers: authHeader(), data: recipe})
+// }

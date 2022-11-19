@@ -42,7 +42,7 @@ public class JournalController {
     //Delete a journal entry
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @RequestMapping(path = "journal/delete/{journalId}", method = RequestMethod.DELETE)
-    public void delete(@PathVariable int journalId) {
+    public void deleteJournalEntry(@PathVariable int journalId) {
         journalDao.deleteJournal(journalId);
     }
 

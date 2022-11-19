@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+@RestController
+@RequestMapping("")
 public class JournalController {
 
     private final JournalDao journalDao;

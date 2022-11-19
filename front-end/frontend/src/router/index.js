@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Home from '../views/Home.vue'
 // Home view needs created/imported
 
 
@@ -12,7 +13,7 @@ const router = new Router({
         {
             path: '/',
             name: 'home',
-            component: CameCard,
+            component: Home,
             meta: {
             // Will need changed later if authorization implemented
             requiresAuth: false

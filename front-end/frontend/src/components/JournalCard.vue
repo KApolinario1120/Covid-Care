@@ -1,5 +1,5 @@
 <template>
-  <div class="game-card">
+  <div class="journal-card">
     <img src= {{ gamePhoto }}>
     <h1>{{ gameName }}</h1>
     <h3>Details:</h3>
@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: 'GameCard',
+  name: 'JournalCard',
   props: {
     gamePhoto: String,
     gameName: String,

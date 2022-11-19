@@ -59,12 +59,6 @@ methods: {
     justify-content: center;
     height: 100%;
     width: 100%;
-    /* padding-left: 10vw;
-    padding-right: 10vw; */
-    /* margin-top: 45px;
-    border: 5px solid rgb(230, 213, 195);
-    background-color: cornsilk;
-    border-radius: 10px; */
 }
 .details-container div {
     border: 5px solid rgb(230, 213, 195);
@@ -102,6 +96,7 @@ methods: {
     overflow-y: auto;
     padding: 10px 10px 10px 10px;
 }
+
 /* This section of CSS defines the EDIT button */
 #span {
 position: relative;

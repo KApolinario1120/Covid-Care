@@ -397,6 +397,7 @@ body {
     display: block;
     font: 1rem 'Raleway', serif;
     margin: .4rem 0;
+    padding: 20px;
 }
 
 .error {

@@ -9,7 +9,6 @@ import java.util.List;
 
 @RestController
 
-@RequestMapping("symptom")
 public class SymptomController {
 
     SymptomDao symptomDao;
@@ -17,22 +16,22 @@ public class SymptomController {
     public SymptomController(SymptomDao symptomDao) {
         this.symptomDao = symptomDao;
     }
-    @RequestMapping(path = "", method = RequestMethod.GET)
+    @RequestMapping(path = "symptom", method = RequestMethod.GET)
     public List<Symptom> getAllSymptoms() {
         return symptomDao.getAllSymptoms();
     }
 
-    @RequestMapping(path = "/{journalId}", method = RequestMethod.GET)
+    @RequestMapping(path = "symptoms/{journalId}", method = RequestMethod.GET)
     public List<Symptom> getAllSymptomsByJournalId(@PathVariable int journalId){
         return symptomDao.getAllSymptomsByJournalId(journalId);
     }
 
-    @RequestMapping(path = "/{symptomId}", method = RequestMethod.GET)
+    @RequestMapping(path = "symptom/{symptomId}", method = RequestMethod.GET)
     public Symptom getSymptomById(@PathVariable int symptomId){
         return symptomDao.getSymptomById(symptomId);
     }
 
-    @RequestMapping(path = "/{journalId}", method = RequestMethod.POST)
+    @RequestMapping(path = "symptom/{journalId}", method = RequestMethod.POST)
     void insertSymptomIntoJournalSymptom(@PathVariable int journalId, @Valid @RequestBody List<Symptom> symptomList){
         symptomDao.populateJournalSymptomTable(journalId, symptomList);
     }

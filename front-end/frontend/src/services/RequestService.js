@@ -2,27 +2,32 @@ import axios from 'axios';
 import authHeader from './auth-header';
 
 const http = axios.create({
-  baseURL: 'http://localhost:3000'
+  baseURL: 'http://localhost:8080'
 });
 
 export default {
 
-  login(user) {
-    return axios.post('/login', user)
-  },
-  register(user) {
-    return axios.post('/register', user)
+  //user methods below
+
+  getAllUsers() {
+    return axios.get('/user')
   },
 
-  findIngredient(term) {
-    return http.get(`/ingredient/search/${term}`)
+  getUserById(userId) {
+    return axios.get(`/user/${userId}`)
   },
-  findAppliance(term) {
-    return http.get(`/appliance/search/${term}`)
+
+  register(newUser) {
+    return http.post(`/user/register`, user)
   },
+  findIdByUsername(username) {
+    return http.get(`/user/userId/${username}`)
+  },
+
+  //
 
   getRecipes() {
-    return http.get(`/recipes/all`, { headers: authHeader() });
+    return http.get(`/recipes/all`);
   },
   addRecipe(recipe) {
     return http.post(`/recipes/add`, recipe, {headers: authHeader()})

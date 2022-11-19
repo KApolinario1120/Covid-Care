@@ -10,10 +10,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-<<<<<<< HEAD
 @RequestMapping("user")
-=======
->>>>>>> b6ff3a600aff17a01859a77ab7153eb4b9a941ce
 public class UserController {
 
     UserDao userDao;

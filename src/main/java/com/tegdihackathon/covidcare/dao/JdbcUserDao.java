@@ -38,11 +38,11 @@ public class JdbcUserDao implements UserDao {
     @Override
     public List<User> getAllUsers() {
         List<User> users = new ArrayList<>();
-        String sql = "SELECT user_id, username FROM public.care_user";
+        String sql = "SELECT user_id, username FROM care_user;";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while (results.next()) {
-            User user = mapRowToUser(results);
+            User user = mapRowToUserWithoutPassword(results);
             users.add(user);
         }
         return users;
@@ -53,7 +53,7 @@ public class JdbcUserDao implements UserDao {
         String sql = "SELECT user_id, username FROM public.care_user WHERE user_id = ?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
         if (results.next()) {
-            return mapRowToUser(results);
+            return mapRowToUserWithoutPassword(results);
         } else {
             return null;
         }
@@ -83,11 +83,10 @@ public class JdbcUserDao implements UserDao {
         return null;
     }
 
-    public User mapRowToUser(SqlRowSet result) {
+    public User mapRowToUserWithoutPassword(SqlRowSet result) {
         User user = new User();
         user.setUserId(result.getInt("user_id"));
         user.setUsername(result.getString("username"));
-        user.setPassword(result.getString("user_password"));
         return user;
     }
 }

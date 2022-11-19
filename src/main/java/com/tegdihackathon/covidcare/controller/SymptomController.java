@@ -8,7 +8,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-
+@RequestMapping("")
 public class SymptomController {
 
     SymptomDao symptomDao;

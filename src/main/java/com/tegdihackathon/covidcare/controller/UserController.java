@@ -11,7 +11,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("user")
-
 public class UserController {
 
     UserDao userDao;

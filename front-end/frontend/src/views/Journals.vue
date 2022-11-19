@@ -3,6 +3,7 @@
     <div class="cardWrapper">
         <journal-card v-for="journal in journalList" :key="journal.id" :journal="journal" class="journal_card"/>
     </div>
+    <p> Journals! </p>
 </div>
 </template>
 
@@ -10,7 +11,7 @@
 import RequestService from '../services/RequestService.js'
 import JournalCard from '../components/JournalCard.vue';
 export default  {
-    name: 'journals',
+    name: "journals",
     components: {
         JournalCard
     },

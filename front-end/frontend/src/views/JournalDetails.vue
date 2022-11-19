@@ -22,7 +22,7 @@
 <script>
 import RequestService from '../services/RequestService.js'
 export default {
-    name: "details",
+    name: "journal-details",
     data () {
     return{
         journal: null 

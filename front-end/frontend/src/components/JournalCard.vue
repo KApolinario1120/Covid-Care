@@ -8,7 +8,7 @@
 
 <script>
 export default {
-    name: "recipe-card",
+    name: "journal-card",
     props: {
         journal: Object
     },

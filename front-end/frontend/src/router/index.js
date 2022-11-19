@@ -37,16 +37,16 @@ const router = new Router({
         //     }
         //   },
           {
-            path: "/Journals",
-            name: "journals",
+            path: '/journals',
+            name: 'journals',
             component: Journals,
             meta: {
               requiresAuth: false
             }
           },
           {
-            path: "/JournalDetails",
-            name: "journal-details",
+            path: '/journaldetails',
+            name: 'journal-details',
             component: JournalDetails,
             meta: {
               requiresAuth: false

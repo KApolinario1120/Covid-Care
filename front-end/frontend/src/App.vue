@@ -10,6 +10,7 @@
           <!-- </li>
           <li> -->
             <router-link id="create-journal-link" v-bind:to="{ name: 'journal-entry' }"> Add Journal Entry </router-link>
+            <router-link id="find-physician-link" v-bind:to="{ name: 'find-physician' }"> Find a Physician </router-link>
           <!-- </li>
       </ul> -->
       </nav>
@@ -19,7 +20,7 @@
 <style>
 
 body {
-  background-color: rgb(253, 253, 253);
+  background-color: rgb(245, 233, 208);
    /* background-image: url('https://cdn.discordapp.com/attachments/872641665314222100/963544684028895253/wood.jpg');  */
 } 
 
@@ -28,38 +29,32 @@ a {
   text-decoration: none;
 }
 
-a:hover {
+a:hover { 
 color: white;
 }
 
-/* ul {
-  padding-inline-start: 0px;
-
+#home-link, #journal-list-link, #create-journal-link, #find-physician-link {
+  display: flex;
+  flex-grow: 4;
+  justify-content: center;
 }
 
-li {
-  list-style-type: none;
-  display: flex;
-  flex-direction: orw;
-  justify-content: center;
-  justify-content: space-around;
-} */
-/* #home-link, #journal-list-link, #create-journal-link {
-  width: 1/3;
+/* iframe {
+  margin-left: 30px;
+  margin-right: 30px;
 } */
 
 nav {
-  /* justify-content: space-around; */
-  /* margin-bottom: 15%; */
 
+  justify-content: space-evenly;
+  /* margin-bottom: 15%; */
   font-family: Georgia, Arial, Helvetica, sans-serif;
   display: flex;
-
   /* flex-grow: 1;  */
-  flex-direction: row;
-  font-size: 30px;
+  /* flex-direction: row; */
+  font-size: 25px;
   /* border: 5px solid rgb(223, 139, 50);  */
-  background-color: rgb(108, 108, 109);
+  background-color: rgb(236, 194, 111);
   border-radius: 10px;
   /* margin: 15px 20px 15px 20px; */
   color: white;
@@ -68,18 +63,8 @@ nav {
 
 }
 
-router-link {
-  justify-content: space-around;
-  flex-grow: 1;
-  background-color: rgba(105, 104, 104, 0.377);;
-  /* border-radius: 15px; */
-  text-align: center;
-
-  padding: 15px 20px 15px 20px;
-}
-
 .parent {
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(241, 223, 187);
     display: flex;
     /* flex-grow: 1; */
     /* flex-direction: row; */

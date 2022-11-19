@@ -29,7 +29,7 @@ export default {
     }
 },
     created() {
-    RequestService.searchRecipe(this.$route.params.id)
+    RequestService.createJournalEntry(this.$route.params.id)
     .then((response) => {
         console.log(response.data);
         this.journal = response.data;
@@ -142,7 +142,7 @@ transform: rotateY(0deg) translateZ(25px);
 #span a:after{
 color: #000;
 background: #fff;
-border: 5px solid white;
+border: 5px solid cornsilk;
 transform: rotateX(90deg) translateZ(25px);
 }
 #span a:hover{

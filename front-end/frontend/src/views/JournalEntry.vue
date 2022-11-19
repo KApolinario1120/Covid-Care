@@ -3,166 +3,106 @@
     
     <div class="mx-auto col-md-7" >
     
-    <h1 class="text-center"> Create Recipe </h1>
+    <h1 class="text-center"> Today's Journal </h1>
     
+    <br>
+    <br>
     <br>
     <form>
     
-    <!-- recipe name -->
+    <!-- username -->
+        <label for="username">Username:</label>
         <b-form-group
             id="fieldset-1"
-            description="What is your recipe called?"
-            label="Recipe Name:"
-            label-for="recipe-name">
-            <b-form-input id="recipe-name" v-model="name" trim></b-form-input>
+            description="What is your username?"
+            label="username:"
+            label-for="username">
+            <b-form-input id="username" v-model="username" trim></b-form-input>
         </b-form-group>
-    
-    <!-- recipe photo -->
-    
-        <b-form-group
-            id="fieldset-1"
-            description="Enter the url for your photo"
-            label="Recipe photo:"
-            label-for="recipe-photo">
-            <b-form-input id="recipe-photo" v-model="recipePhoto" trim required></b-form-input>
-        </b-form-group>
-    
-    <!-- description -->
-    
+
+    <!-- password -->
         <br>
-        <label for="description">Description:</label>
+        <br>
+        <label for="password">Password:</label>
+        <b-form-group
+            id="fieldset-1"
+            description="What is your password?"
+            label="password:"
+            label-for="password">
+            <b-form-input id="password" v-model="password" trim></b-form-input>
+        </b-form-group>
+    
+
+    <!-- notes -->
+        <br>
+        <br>
+        <label for="notes">Notes:</label>
         <b-form-textarea
-            id="description"
+            id="notes"
             v-model="description"
-            placeholder=""
+            placeholder="add multiple lines"
             rows="3"
             max-rows="6"
         ></b-form-textarea>
+
+        <br>
+        <br>
+    <!-- temperature -->
+            <label for="temperature">Temperature:</label>
+        <b-form-group
+            id="fieldset-1"
+            description="Did you measure your temperature today?"
+            label="temperature:"
+            label-for="temperature">
+            <b-form-input id="temperature" v-model="temperature" trim></b-form-input>
+        </b-form-group>
+
+    <!-- symptom check boxes -->
+        <br>
+        <br>
+        <b-form-group label="Using options array:" v-slot="{ ariaDescribedby }">
+      <b-form-checkbox-group
+        id="checkbox-group-1"
+        v-model="selected"
+        :options="options"
+        :aria-describedby="ariaDescribedby"
+        name="flavour-1"
+      ></b-form-checkbox-group>
+    </b-form-group>
+
+    <b-form-group label="Using sub-components:" v-slot="{ ariaDescribedby }">
+      <b-form-checkbox-group
+        id="checkbox-group-2"
+        v-model="selected"
+        :aria-describedby="ariaDescribedby"
+        name="flavour-2"
+      >
+        <b-form-checkbox value="fatigue">Tiredness or fatigue that interferes with daily life</b-form-checkbox>
+        <b-form-checkbox value="post-exertional malaise">Symptoms that get worse after physical or mental effort (also known as “post-exertional malaise”)</b-form-checkbox>
+        <b-form-checkbox value="fever">Fever</b-form-checkbox>
+        <b-form-checkbox value="shortness of breath">Difficulty breathing or shortness of breath</b-form-checkbox>
+        <b-form-checkbox value="cough">Cough</b-form-checkbox>
+        <b-form-checkbox value="chest pain">Chest pain</b-form-checkbox>
+        <b-form-checkbox value="heart palpitations">Fast-beating or pounding heart (also known as heart palpitations)</b-form-checkbox>
+        <b-form-checkbox value="difficulty thinking or concentration">Difficulty thinking or concentrating (sometimes referred to as “brain fog”)</b-form-checkbox>
+        <b-form-checkbox value="Headache">Headache</b-form-checkbox>
+        <b-form-checkbox value="Sleep problems">Difficulty sleeping or waking</b-form-checkbox>
+        <b-form-checkbox value="dizziness">Dizziness when you stand up (lightheadedness)</b-form-checkbox>
+        <b-form-checkbox value="Pins-and-needles feelings">Pins-and-needles feelings</b-form-checkbox>
+        <b-form-checkbox value="Change in smell or taste">Change in smell or taste</b-form-checkbox>
+        <b-form-checkbox value="Depression or anxiety">Depression or anxiety</b-form-checkbox>
+        <b-form-checkbox value="Diarrhea">Diarrhea</b-form-checkbox>
+        <b-form-checkbox value="Stomach pain">Stomach pain</b-form-checkbox>
+        <b-form-checkbox value="Joint or muscle pain">Joint or muscle pain</b-form-checkbox>
+        <b-form-checkbox value="Rash">Rash</b-form-checkbox>
+        <b-form-checkbox value="Changes in menstrual cycles">Changes in menstrual cycles</b-form-checkbox>
+      </b-form-checkbox-group>
+    </b-form-group>
         
-    <!-- Add ingredient -->
-    
-        <br>
-        <label for="ingredient-input" >Ingredients:</label> 
-        <ul id="ingredient-input" style="list-style-type:none;">
-            <div style="margin: 2px;" class="d-flex" v-for="ingredient in ingredients" v-bind:key="ingredient">
-            <div>
-                <li>{{ingredient.quantity}} {{ingredient.measurement}} {{ingredient.name}}</li>
-            </div>
-            <div class="ml-auto">
-                <button class="btn btn-danger btn-sm" v-on:click.prevent="removeIngredientFromArray(ingredient)">X</button>
-            </div>
-            </div>
-        </ul>
-        <b-container fluid>
-    
-            <b-row>
-                 
-                <!-- Quantity -->
-                <b-col sm="3">
-                    <b-form-input v-model="ingredientQuantity" placeholder="Quantity"></b-form-input>
-                </b-col>
-    
-                <!-- Measurement -->
-                <b-col sm="3">
-                    <b-form-select placeholder="measurement" v-model="ingredientMeasurement" :options="measurementOptions">
-                        <template #first>
-                            <b-form-select-option :value="null" disabled>Measurement</b-form-select-option>
-                        </template>
-                    </b-form-select>
-                <!-- <b-form-input v-model="ingredientMeasurement" placeholder="Measurement"></b-form-input> -->
-                </b-col>
-    
-                <!-- Ingredient search -->
-                <b-col sm="5">
-                    <b-form-input name="ingredient-input" list="ingredient-list" id="ingredient-input" v-model="ingredient" v-on:keyup="searchIngredientList()" v-on:keydown.enter.prevent="addIngredientToArray()" placeholder="Add ingredient"></b-form-input>
-                </b-col>
-                <datalist id="ingredient-list">
-                <option v-for="ingredient in ingredientList" v-bind:key="ingredient">
-                    {{ingredient.name}}
-                </option>
-                </datalist>
-    
-                <!-- Add Ingredient Button -->
-                <b-col sm="1">
-                    <button class="btn btn-success" v-on:click.prevent="addIngredientToArray()">Add</button>
-                </b-col>
-    
-            </b-row>
-    
-        </b-container>
-    
-    <!-- Serving Size -->
-    
-        <br>
-        <label for="servings">Servings:</label>
-        <b-form-select id="servings" v-model="servings" :options="servingOptions">
-            <template #first>
-            <b-form-select-option :value="null" disabled>-- How many servings does this recipe make? --</b-form-select-option>
-          </template>
-        </b-form-select>
-        <br>
-    
-    <!-- Add appliance -->
-    
-        <br>
-        <label for="appliance-input">Appliances:</label> 
-        <ul id="appliance-input" style="list-style-type:none;">
-            <div style="margin: 2px;" class="d-flex" v-for="appliance in appliances" v-bind:key="appliance">
-            <div>
-                <li>{{appliance.name}}</li>
-            </div>
-            <div class="ml-auto">
-                <button class="btn btn-danger btn-sm" v-on:click.prevent="removeApplianceFromArray(appliance)">X</button>
-            </div>
-            </div>
-        </ul>
-        <b-container fluid>
-            <b-row class="my-1">
-                <b-col sm="11">
-                    <b-form-input list="appliance-list" id="appliance-input" v-model="appliance" v-on:keyup="searchApplianceList()"  v-on:keydown.enter.prevent="addApplianceToArray()" placeholder="Add appliance"></b-form-input>
-                </b-col>
-                <b-col sm="1">
-                    <button class="btn btn-success" v-on:click.prevent="addApplianceToArray()">Add</button>
-                </b-col>
-            </b-row>
-        </b-container>
-    
-        <datalist id="appliance-list">
-            <option v-for="appliance in applianceList" v-bind:key="appliance">
-                {{appliance.name}}
-            </option>
-        </datalist>
-       
-    <!-- Recipe instructions -->
-    
-        <br>
-        <label for="instructions">Instructions:</label>
-        <b-form-textarea
-          id="instructions"
-          v-model="instructions"
-          placeholder=""
-          rows="6"
-          max-rows="12"
-        ></b-form-textarea>
-        <br>
-    
-    <!-- Difficulty bar -->
-    
-        <br>
-        <label for="difficulty-range">Difficulty: {{ difficulty }}</label>
-        <b-form-input id="difficulty-range" v-model="difficulty" type="range" min="1" max="10"></b-form-input>
-    
-        <br><br>
-        <div class="text-center">
-            <button class="btn btn-primary" v-on:click.prevent="submitRecipe()" type="submit">Save to Recipe List</button>
-        </div>
-        <br>
       </form>
       </div>
       </div>
     </template>
-    
-    
     
     
     <script>
@@ -311,7 +251,7 @@
             }
         },
         computed: {
-            getRecipe() {
+            getJournal() {
                 return {
                     name: this.name,
                     photo_url: this.recipePhoto,
@@ -328,12 +268,24 @@
     </script>
     
     <style scoped>
+
     label {
         font-weight: bold;
+        margin-left: 20px;
+        font-family:"Raleway", serif;
+        font-size: 23px;
+        color: rgb(82, 82, 82);
     }
     .mx-auto {
-        border: 5px solid rgb(230, 213, 195);
-        background-color: cornsilk;
+        padding-top: 20px;
+        margin-top: 20px;
+        /* border: 5px solid rgb(230, 213, 195);
+        background-color: cornsilk; */
         border-radius: 10px;
+    }
+
+    h1 {
+        text-align: center;
+        font-family:"Raleway", serif;
     }
     </style>

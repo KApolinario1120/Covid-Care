@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
 <div>
     <div class="cardWrapper">
         <journal-card v-for="journal in journalList" :key="journal.journalId" :journal="journal" class="journal_card"/>
@@ -40,13 +40,10 @@ body{
     justify-content:center;
 }
 .journal_card{
-    margin-top: 25px;
-    padding-top: 20px;
-    background-color: rgb(251, 250, 243);
-    border-radius: 5px;
+    background-color: rgb(184, 184, 184);
     width: 20%;
     padding-bottom: 30px;
     text-align: center;
-    box-shadow: 5px 5px 5px #bc9c70;
+    box-shadow: 5px 5px 5px #422424;
 }
-</style>
+</style> -->

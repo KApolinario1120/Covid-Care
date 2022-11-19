@@ -21,7 +21,7 @@ public class SymptomController {
         return symptomDao.getAllSymptoms();
     }
 
-    @RequestMapping(path = "symptoms/{journalId}", method = RequestMethod.GET)
+    @RequestMapping(path = "symptom/all/{journalId}", method = RequestMethod.GET)
     public List<Symptom> getAllSymptomsByJournalId(@PathVariable int journalId){
         return symptomDao.getAllSymptomsByJournalId(journalId);
     }
@@ -31,7 +31,7 @@ public class SymptomController {
         return symptomDao.getSymptomById(symptomId);
     }
 
-    @RequestMapping(path = "symptom/{journalId}", method = RequestMethod.POST)
+    @RequestMapping(path = "symptom/journalId/{journalId}", method = RequestMethod.POST)
     void insertSymptomIntoJournalSymptom(@PathVariable int journalId, @Valid @RequestBody List<Symptom> symptomList){
         symptomDao.populateJournalSymptomTable(journalId, symptomList);
     }

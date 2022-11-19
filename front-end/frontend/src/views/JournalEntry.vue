@@ -168,7 +168,7 @@
     <script>
     import AuthService from '../services/AuthService.js'
     export default {
-        name: 'create-recipe',
+        name: 'journal-entry',
         data () {
             return {
                 ingredients: [],

@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import HomePage from '../views/HomePage.vue'
 import JournalList from '../views/JournalList.vue'
 import JournalDetails from '../views/JournalDetails.vue'
+import JournalEntry from '../views/JournalEntry.vue'
 
 
 Vue.use(Router)
@@ -48,6 +49,14 @@ const router = new Router({
             path: '/journal/:id',
             name: 'journal-details',
             component: JournalDetails,
+            meta: {
+              requiresAuth: false
+            }
+          },
+          {
+            path: '/journal-entry',
+            name: 'journal-entry',
+            component: JournalEntry,
             meta: {
               requiresAuth: false
             }

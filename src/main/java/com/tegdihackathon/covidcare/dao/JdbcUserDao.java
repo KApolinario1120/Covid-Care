@@ -19,7 +19,6 @@ public class JdbcUserDao implements UserDao {
     }
 
 
-
     @Override
     public boolean createUser(String username, String password) {
 
@@ -57,7 +56,6 @@ public class JdbcUserDao implements UserDao {
         } else {
             return null;
         }
-
     }
 
     @Override

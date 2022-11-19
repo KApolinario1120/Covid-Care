@@ -6,7 +6,7 @@ import java.util.List;
 public interface UserDao {
 
     //Create a user
-    boolean createUser(String userName, String password);
+    boolean createUser(String username, String password);
 
     //Retrieve a list of all users
     List<User> getAllUsers();

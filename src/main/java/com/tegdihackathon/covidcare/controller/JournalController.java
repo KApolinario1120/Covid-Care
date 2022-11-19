@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
-@RequestMapping("journal")
 public class JournalController {
 
     private final JournalDao journalDao;
@@ -17,32 +16,32 @@ public class JournalController {
     }
 
     //Retrieve a journal entry by id
-    @RequestMapping(path = "/{journalId}", method = RequestMethod.GET)
+    @RequestMapping(path = "journal/{journalId}", method = RequestMethod.GET)
     public Journal getJournalByJournalId(@PathVariable int journalId) {
         return journalDao.getJournalByJournalId(journalId);
     }
 
     //Get a journal entry by user id
-    @RequestMapping(path = "/user/{userId}", method = RequestMethod.GET)
+    @RequestMapping(path = "journal/user/{userId}", method = RequestMethod.GET)
     public Journal getJournalByUserId(@PathVariable int userId) {
         return journalDao.getJournalByUserId(userId);
     }
 
     //Update a journal entry
 //  boolean updateJournalEntry(Journal journal);
-    @RequestMapping(path = "/update/{journalId}", method = RequestMethod.PUT)
+    @RequestMapping(path = "journal/update/{journalId}", method = RequestMethod.PUT)
     public boolean updateJournalEntry(@Valid @RequestBody Journal journal) {
         return journalDao.updateJournalEntry(journal);
     }
 
-    @RequestMapping(path = "/submit", method = RequestMethod.POST)
+    @RequestMapping(path = "journal/submit", method = RequestMethod.POST)
     public void createJournalEntry(@Valid @RequestBody Journal journal) {
         journalDao.createJournal(journal);
     }
 
     //Delete a journal entry
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @RequestMapping(path = "/delete/{journalId}", method = RequestMethod.DELETE)
+    @RequestMapping(path = "journal/delete/{journalId}", method = RequestMethod.DELETE)
     public void delete(@PathVariable int journalId) {
         journalDao.deleteJournal(journalId);
     }

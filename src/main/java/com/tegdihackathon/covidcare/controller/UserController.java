@@ -10,7 +10,10 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
+<<<<<<< HEAD
 @RequestMapping("user")
+=======
+>>>>>>> b6ff3a600aff17a01859a77ab7153eb4b9a941ce
 public class UserController {
 
     UserDao userDao;
@@ -19,12 +22,12 @@ public class UserController {
         this.userDao = userDao;
     }
 
-    @RequestMapping(path = "", method = RequestMethod.GET)
+    @RequestMapping(path = "user", method = RequestMethod.GET)
     public List<User> getAllUsers() {
         return userDao.getAllUsers();
     }
 
-    @RequestMapping(path = "/{userId}", method = RequestMethod.GET)
+    @RequestMapping(path = "user/{userId}", method = RequestMethod.GET)
     public User getUserById(@PathVariable int userId) {
         User user = userDao.getUserById(userId);
         if (user == null) {
@@ -35,14 +38,14 @@ public class UserController {
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    @RequestMapping(value = "user/register", method = RequestMethod.POST)
     public void register(@Valid @RequestBody User newUser) {
         if (!userDao.createUser(newUser.getUsername(), newUser.getPassword())) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User registration failed.");
         }
     }
 
-    @RequestMapping(path = "/userId/{username}", method = RequestMethod.GET)
+    @RequestMapping(path = "user/userId/{username}", method = RequestMethod.GET)
     public int findIdByUsername(String username) {return userDao.findIdByUsername(username);
     }
 

@@ -20,8 +20,8 @@
 
                 <div>
                     <input type="checkbox" name="langs" id="langs_malaise" value="malaise"> <label
-                        for="langs_malaise">Post-exertional malaise(Symptoms that get worse after physical or mental
-                        effort) </label>
+                        for="langs_malaise">Post-exertional malaise (Symptoms that get worse after physical or mental
+                        exertion) </label>
                 </div>
 
                 <div>
@@ -72,7 +72,7 @@
 
                 <div>
                     <input type="checkbox" name="langs" id="langs_lh" value="lh" > <label
-                        for="langs_lh">Lightheadedness when standing up</label>
+                        for="langs_lh">Dizziness or Light-headedness when standing</label>
                 </div>
 
                 <div>
@@ -121,31 +121,31 @@
                         for="langs_period">Changes in menstrual cycles</label>
                 </div>
 
-                <div>
+                <div id="other">
                     <input type="checkbox" name="langs" id="langs_other" value="other" > <label
                         for="langs_other">Other</label>
                 </div>
             </section>
 
-            <div>
-                <input type="submit" name="submit" value="Submit" />
-            </div>
+            <!-- <div >
+                <input id="submit" type="submit" name="submit" value="Submit" />
+            </div> -->
         </form>
 
 
-        <form>
+        <form id="input-group-form">
             <div class="input-group">
-                <label for="feelings">How are you feeling or what other symptoms are you experiencing today?</label>
+                <!-- <label for="feelings">How are you feeling or what other symptoms are you experiencing today?</label> -->
                 <textarea name="feelings" id="feelings" rows="7" class="input-item"
                     placeholder="Enter your feelings here"></textarea>
             </div>
 
-            <div class="text-right">
+            <!-- <div class="text-right">
                 <input class="button" type="submit" id="save" value="Save">
-            </div>
+            </div> -->
         </form>
 
-        <div id="calanderholder">
+        <!-- <div id="calanderholder">
             <h2 class="subtitle">Most recent entry</h2>
 
             <div class="container col-sm-4 col-md-7 col-lg-4 mt-5">
@@ -249,7 +249,7 @@
                 <div class="entry-item" id="content"></div>
             </section>
 
-        </div>
+        </div> -->
     </div>
 </template>
     
@@ -383,6 +383,10 @@ h1 {
     font-family: 'Railway', sans-serif;
     text-align: center;
 }
+section, p {
+    padding-left: 20px;
+    line-height: 25px;
+}
 html,
 body {
     height: 100%;
@@ -396,6 +400,14 @@ body {
     padding: 0;
     margin: 0;
     color: #333333;
+}
+
+#submit {
+    display: flex;
+    justify-content: space-around;
+    padding: 7.5px;
+    margin: 20px, 20px, 20px, 20px;
+
 }
 
 .wrapper {
@@ -422,6 +434,13 @@ body {
 
 .input-group {
     margin-bottom: 2em;
+    background-color: rgb(236, 194, 111);
+    padding: 30px;
+    border-color: rgb(243, 219, 96);
+    color: black;
+}
+#feelings {
+    color: black;
 }
 
 .input-item {
@@ -459,6 +478,7 @@ body {
     color: #FFF;
     padding: 0.5em 1.25em;
     cursor: pointer;
+    text-align: left;
 }
 
 #feedback {
@@ -466,10 +486,17 @@ body {
     border-radius: 0.25em;
     transition: all 0.5 ease-in-out;
 }
+#input-group-form {
+    padding: 20px;
+    color: black;
+}
 
 .error {
     border: 1px solid #F00;
     color: #F00;
+}
+#other {
+    padding-bottom: 20px;
 }
 
 .success {

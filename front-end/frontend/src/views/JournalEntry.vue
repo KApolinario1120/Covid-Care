@@ -145,8 +145,8 @@
             </div> -->
         </form>
 
-        <label for = "start"> 
-            <h3>Enter Date: </h3>
+        <label for = "start" id="date-start"> 
+            <h2>Enter Date: </h2>
         </label>
         <input type ="date" id="start" name="date" value="2020-01-01">
     </div>
@@ -309,6 +309,10 @@ body {
 
 }
 
+#date-start {
+    padding: 20px;
+}
+
 .wrapper {
     height: 100vh;
     display: grid;
@@ -394,7 +398,6 @@ body {
     display: block;
     font: 1rem 'Raleway', serif;
     margin: .4rem 0;
-    padding: 20px;
 }
 
 .error {

@@ -1,9 +1,17 @@
 <template>
   <div id="app">
       <nav>
-        <router-link id="home-link" v-bind:to="{ name: 'home-page' }"> Home </router-link>
-        <router-link id="journal-list-link" v-bind:to="{ name: 'journal-list' }"> View All Journal Entries </router-link>
-        <router-link id="create-journal-link" v-bind:to="{ name: 'create-journal' }"> Add Journal Entry </router-link>
+        <!-- <ul>
+          <li> -->
+            <router-link id="home-link" v-bind:to="{ name: 'home-page' }"> Home </router-link>
+          <!-- </li>
+          <li> -->
+            <router-link id="journal-list-link" v-bind:to="{ name: 'journal-list' }"> View All Journal Entries </router-link>
+          <!-- </li>
+          <li> -->
+            <router-link id="create-journal-link" v-bind:to="{ name: 'create-journal' }"> Add Journal Entry </router-link>
+          <!-- </li>
+      </ul> -->
       </nav>
     <router-view />
     </div>
@@ -24,27 +32,40 @@ a:hover {
 color: white;
 }
 
-#home-link, #journal-list-link, #create-journal-link {
-  width: 1/3;
+/* ul {
+  padding-inline-start: 0px;
+
 }
+
+li {
+  list-style-type: none;
+  display: flex;
+  flex-direction: orw;
+  justify-content: center;
+  justify-content: space-around;
+} */
+/* #home-link, #journal-list-link, #create-journal-link {
+  width: 1/3;
+} */
 
 nav {
   /* justify-content: space-around; */
   /* margin-bottom: 15%; */
-  justify-content: center;
-  justify-content: space-around;
+
   font-family: Georgia, Arial, Helvetica, sans-serif;
   display: flex;
-  /* flex-grow: 1; */
+
+  /* flex-grow: 1;  */
   flex-direction: row;
   font-size: 30px;
   /* border: 5px solid rgb(223, 139, 50);  */
   background-color: rgb(108, 108, 109);
   border-radius: 10px;
-  margin: 15px 20px 15px 20px;
+  /* margin: 15px 20px 15px 20px; */
   color: white;
   padding-bottom: 10px;
   padding-top: 10px;
+
 }
 
 router-link {
@@ -60,12 +81,12 @@ router-link {
 .parent {
   background-color: rgb(255, 255, 255);
     display: flex;
-    flex-grow: 1;
-    flex-direction: row;
-    border: 5px solid rgb(230, 213, 195);
-    background-color: cornsilk;
-    border-radius: 10px;
-    margin: 15px 20px 15px 20px;
+    /* flex-grow: 1; */
+    /* flex-direction: row; */
+    /* border: 5px solid rgb(230, 213, 195); */
+    /* background-color: cornsilk; */
+    /* border-radius: 10px; */
+    /* margin: 15px 20px 15px 20px; */
 
 }
 </style>

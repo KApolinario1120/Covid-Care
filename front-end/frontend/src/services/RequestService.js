@@ -61,17 +61,7 @@ export default {
   },
 
   deleteJournalEntry(journalId) {
-    return http.delete(`/recipes/delete/${journalId}`)
+    return http.delete(`/journal/delete/${journalId}`)
   }
 
 }
-
-// getAllSymptomsByJournalId(journalId) {
-//   return http.post(`/recipes/add`, recipe, {headers: authHeader()})
-// },
-// getSymptomById(symptomId){
-//   return http.put(`/recipes/edit`, recipe, {headers: authHeader()})
-// },
-// insertSymptomIntoJournalSymptom(recipe) {
-//   return http.delete(`/recipes/delete`, {headers: authHeader(), data: recipe})
-// }

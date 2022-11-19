@@ -1,23 +1,27 @@
 <template>
     <div>
+        <br>
+        <br>
+    
       <div class="details-container">
 
         <div class="namedesc">
-          <span>{{journal.journalDate}}</span>
+          <span id="date">{{journal.journalDate}}</span>
           <br>
-          <span>Tested Positive? {{journal.testedPositive}}</span>
+          <br>
+          <span>Covid test result: {{journal.testedPositive}}</span>
           <br>
         <h3>Symptoms: </h3>
-        <p></p>
+            <p></p>
           <br>
-          <h3>Joural Notes:</h3>
+        <h3>Notes:</h3>
           <p>{{journal.notes}}</p>
         </div>
   
-        <div id="buttons">
+        <!-- <div id="buttons">
           <span id="span" v-on:click.prevent="editJournal(journal)"> <a href=""></a> </span>
           <span id="delete" v-on:click.prevent="deleteJournal(journal)"><i class="fa fa-trash-o"></i></span>
-        </div>
+        </div> -->
   
       </div>
     </div>
@@ -74,8 +78,10 @@ methods: {
     width: 100%;
 }
 .details-container div {
-    border: 5px solid rgb(230, 213, 195);
-    background-color: cornsilk;
+    padding: 40 px;
+    margin: 20px, 20px, 20px, 20px;
+    border: 5px solid rgb(255, 247, 238);
+    background-color: rgb(255, 250, 233);
     border-radius: 10px;
     /* height: 300px;
     width: 300px; */
@@ -97,9 +103,14 @@ methods: {
     font-weight: bold;
 }
 .namedesc p {
-    font-size: 100%;
+    font-size: 120%;
     margin-top: 20px;
     
+}
+.namedesc span date {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
 }
 .instructions, .ingredient-container{
     flex-basis: 47.5%;
@@ -155,6 +166,32 @@ transform: rotateX(90deg) translateZ(25px);
 }
 #span a:hover{
 transform: translateZ(-25px) rotateX(-90deg);
+}
+span{
+    font-weight: bolder;
+    font-size: 150%;
+    line-height: 30px;
+}
+#date {
+    line-height: 50px;
+    text-align: center;
+    justify-content: center;
+}
+p{
+    padding-top: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 150%;
+}
+img{
+  width: 100%;
+  max-height: 200px;
+}
+h3{
+    padding-top: 30px;
+}
+p {
+    font-size: 35px;
 }
 #delete {
 float: right;

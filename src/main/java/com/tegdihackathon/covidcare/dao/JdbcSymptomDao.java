@@ -48,12 +48,28 @@ public class JdbcSymptomDao implements SymptomDao {
 
     @Override
     public List<Symptom> getAllSymptomsByJournalId(int journalId) {
-        return null;
+        String sql =
+        "SELECT symptom.symptom_id, symptom.symptom_name, symptom.symptom_type FROM symptom " +
+        "JOIN journal_symptom ON symptom.symptom_id = journal_symptom.symptom_id " +
+        "JOIN journal ON journal_symptom.journal_id = journal.journal_id " +
+        "WHERE journal.journal_id = ?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, journalId);
+        List<Symptom> symptoms = new ArrayList<>();
+        while (results.next()){
+            symptoms.add(mapRowToSymptom(results));
+        }
+        return symptoms;
     }
 
     @Override
     public Symptom getSymptomById(int symptomId) {
-        return null;
+        String sql = "SELECT * FROM symptom WHERE symptom_id = ?";
+        SqlRowSet result = jdbcTemplate.queryForRowSet(sql, symptomId);
+        Symptom symptom = new Symptom();
+        if (result.next()){
+            symptom = mapRowToSymptom(result);
+        }
+        return symptom;
     }
 
 //    @Override//

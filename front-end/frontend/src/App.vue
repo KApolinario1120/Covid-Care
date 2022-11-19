@@ -1,26 +1,45 @@
 <template>
   <div id="app">
 
-    <nav>
-      <router-link v-bind:to="{ name: 'home' }"> Home </router-link>
-      <router-link v-bind:to="{ name: 'journals' }"> *View All Journal Entries* </router-link>
-      <router-link v-bind:to="{ name: 'create-journal' }"> Add Journal Entry </router-link>
-    </nav>
-
-  </div>
+      <nav>
+        <router-link v-bind:to="{ name: 'home' }"> Home </router-link>
+        <router-link v-bind:to="{ name: 'journals' }"> View All Journal Entries </router-link>
+        <router-link v-bind:to="{ name: 'create-journal' }"> Add Journal Entry </router-link>
+      </nav>
+    <router-view />
+    </div>
 </template>
 
 <style>
-body{
-  background-image: url('https://cdn.discordapp.com/attachments/872641665314222100/963544684028895253/wood.jpg');
+
+body {
+  /* background-image: url('https://cdn.discordapp.com/attachments/872641665314222100/963544684028895253/wood.jpg'); */
 }
-#nav {
+
+router-link {
+  justify-content: space-between;
+}
+
+nav {
+  justify-content: space-between;
   margin-bottom: 5%;
   background-color: cornsilk;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: row;
+  font-size: 30px;
+  /* border: 5px solid rgb(223, 139, 50); */
+  background-color: rgb(243, 218, 118);
+  border-radius: 10px;
 }
 .parent {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: row;
     border: 5px solid rgb(230, 213, 195);
     background-color: cornsilk;
     border-radius: 10px;
+
 }
 </style>

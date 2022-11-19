@@ -4,8 +4,11 @@ import com.tegdihackathon.covidcare.dao.JournalDao;
 import com.tegdihackathon.covidcare.model.Journal;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import java.util.List;
+import java.util.ArrayList;
 
 import javax.validation.Valid;
+import java.awt.*;
 
 @RestController
 @RequestMapping("")
@@ -25,8 +28,13 @@ public class JournalController {
 
     //Get a journal entry by user id
     @RequestMapping(path = "journal/user/{userId}", method = RequestMethod.GET)
-    public Journal getJournalByUserId(@PathVariable int userId) {
-        return journalDao.getJournalByUserId(userId);
+    public List<Journal> getAllJournalsByUserId(@PathVariable int userId) {
+        return journalDao.getAllJournalsByUserId(userId);
+    }
+
+    @RequestMapping(path = "journal/all", method = RequestMethod.GET)
+    public List<Journal> getAllJournals(@PathVariable int userId) {
+        return journalDao.getAllJournalsByUserId(userId);
     }
 
     //Update a journal entry

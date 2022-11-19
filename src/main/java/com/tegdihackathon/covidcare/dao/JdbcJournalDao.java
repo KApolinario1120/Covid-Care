@@ -4,6 +4,8 @@ import com.tegdihackathon.covidcare.model.Journal;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
+import java.util.List;
+import java.util.ArrayList;
 
 @Component
 public class JdbcJournalDao implements JournalDao {
@@ -32,14 +34,27 @@ public class JdbcJournalDao implements JournalDao {
     }
 
     @Override
-    public Journal getJournalByUserId(int userId) {
-        Journal journal = null;
+    public List<Journal> getAllJournalsByUserId(int userId) {
+        List<Journal> allJournals = new ArrayList<>();
         String sql = "SELECT * FROM journal WHERE user_id = ?;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
         while (results.next()) {
-            journal = mapRowToJournal(results);
+            Journal journal = mapRowToJournal(results);
+            allJournals.add(journal);
         }
-        return journal;
+        return allJournals;
+    }
+
+    @Override
+    public List<Journal> getAllJournals() {
+        List<Journal> allJournals = new ArrayList<>();
+        String sql = "SELECT * FROM journal;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        while (results.next()) {
+            Journal journal = mapRowToJournal(results);
+            allJournals.add(journal);
+        }
+        return allJournals;
     }
 
     @Override

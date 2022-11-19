@@ -145,6 +145,16 @@
             </div> -->
         </form>
 
+        <label for = "start"> 
+            Enter Date:
+        </label>
+        <input type ="date" id="start" name="date" value="2020-01-01">
+        
+
+
+
+
+
         <!-- <div id="calanderholder">
             <h2 class="subtitle">Most recent entry</h2>
 
@@ -491,6 +501,12 @@ body {
     color: black;
 }
 
+#start {
+    display: block;
+    font: 1rem 'Raleway', serif;
+    margin: .4rem 0;
+}
+
 .error {
     border: 1px solid #F00;
     color: #F00;
@@ -503,6 +519,8 @@ body {
     border: 1px solid #018601;
     color: #018601;
 }
+
+
 
 /* label {
         font-weight: bold;

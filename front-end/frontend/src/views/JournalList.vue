@@ -3,7 +3,6 @@
     <div class="cardWrapper">
         <journal-card v-for="journal in journalList" :key="journal.journalId" :journal="journal" class="journal_card"/>
     </div>
-    <p> Journals! </p>
 </div>
 </template>
 

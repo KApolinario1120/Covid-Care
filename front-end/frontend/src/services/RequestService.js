@@ -1,5 +1,4 @@
 import axios from 'axios';
-import authHeader from './auth-header';
 
 const http = axios.create({
   baseURL: 'http://localhost:8080'
@@ -18,7 +17,7 @@ export default {
   },
 
   register(newUser) {
-    return http.post(`/user/register`, user)
+    return http.post(`/user/register`, newUser)
   },
   findIdByUsername(username) {
     return http.get(`/user/userId/${username}`)

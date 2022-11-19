@@ -13,9 +13,9 @@ export default {
         journal: Object
     },
     methods: {
-      routeToJournalDetails(recipe){
+      routeToJournalDetails(journal){
       console.log("hit");
-      this.$router.push('/journal/'+journal.journalId)
+      this.$router.push('/journals/'+journal.journalId)
     }
   }
 }
@@ -67,7 +67,7 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+Add "scoped" attribute to limit CSS to this component only
 <style scoped>
 ul {
   list-style-type: none;

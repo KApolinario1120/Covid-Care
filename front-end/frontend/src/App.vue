@@ -1,8 +1,8 @@
 <template>
   <div id="app">
       <nav>
-        <router-link v-bind:to="{ name: 'home' }"> Home </router-link>
-        <router-link v-bind:to="{ name: 'journals' }"> View All Journal Entries </router-link>
+        <router-link v-bind:to="{ name: 'home-page' }"> Home </router-link>
+        <router-link v-bind:to="{ name: 'journal-list' }"> View All Journal Entries </router-link>
         <router-link v-bind:to="{ name: 'create-journal' }"> Add Journal Entry </router-link>
       </nav>
     <router-view />

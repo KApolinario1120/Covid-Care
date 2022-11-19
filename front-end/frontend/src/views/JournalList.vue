@@ -11,7 +11,7 @@
 import RequestService from '../services/RequestService.js'
 import JournalCard from '../components/JournalCard.vue';
 export default  {
-    name: "journals",
+    name: "journal-list",
     components: {
         JournalCard
     },

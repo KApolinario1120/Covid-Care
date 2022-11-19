@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '../views/Home.vue'
-import Journals from '../views/Journals.vue'
+import HomePage from '../views/HomePage.vue'
+import JournalList from '../views/JournalList.vue'
 import JournalDetails from '../views/JournalDetails.vue'
 
 
@@ -13,8 +13,8 @@ const router = new Router({
     routes: [
         {
             path: '/',
-            name: 'home',
-            component: Home,
+            name: 'home-page',
+            component: HomePage,
             meta: {
             // Will need changed later if authorization implemented
             requiresAuth: false
@@ -37,15 +37,15 @@ const router = new Router({
         //     }
         //   },
           {
-            path: '/journals',
-            name: 'journals',
-            component: Journals,
+            path: '/journal-list',
+            name: 'journal-list',
+            component: JournalList,
             meta: {
               requiresAuth: false
             }
           },
           {
-            path: '/journaldetails',
+            path: '/journal/:id',
             name: 'journal-details',
             component: JournalDetails,
             meta: {

@@ -7,7 +7,7 @@
         <iframe src="https://ourworldindata.org/explorers/coronavirus-data-explorer?zoomToSelection=true&time=2020-03-01..latest&facet=none&pickerSort=desc&pickerMetric=new_cases_per_million&Metric=Confirmed+cases&Interval=7-day+rolling+average&Relative+to+Population=true&Color+by+test+positivity=false&country=IND~USA~GBR~CAN~DEU~JPN&hideControls=true" loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe>
         
         <!-- <h3 id="easy">To learn more about long COVID, please watch the video below.</h3> -->
-        <h1><span>What is long COVID exactly?</span></h1>
+        <h1><span>What is long COVID exactly? Scroll down to learn more.</span></h1>
 
         <div id="information-long-covid">
             <div id="text-explanation">

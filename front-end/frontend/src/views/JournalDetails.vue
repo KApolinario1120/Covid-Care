@@ -12,7 +12,7 @@
           <span>Covid test result: {{journal.testedPositive}}</span>
           <br>
         <h3>Symptoms: </h3>
-            <p></p>
+        <p v-for="symptom in symptomList" :key="symptom">{{symptom}}</p>
           <br>
         <h3>Notes:</h3>
           <p>{{journal.notes}}</p>
@@ -34,7 +34,7 @@ export default {
     data () {
     return{
         journal: null,
-        symptoms: []
+        symptomList: []
     }
 },
     created() {
@@ -43,14 +43,14 @@ export default {
         console.log(response.data);
         this.journal = response.data;
     });
-    // RequestService.getAllSymptomsByJournalId(this.$route.params.id)
-    // .then((response) => {
-    //     console.log(response.data);
-    //     response.data.forEach(element => {
-    //         this.symptoms.push(element.symptomName);
-    //     });
+    RequestService.getAllSymptomsByJournalId(this.$route.params.id)
+    .then((response) => {
+        console.log(response.data);
+        response.data.forEach(element => {
+            this.symptomList.push(element.symptomName);
+        });
         
-    // });
+    });
 },
 methods: {
     editJournal(journal){

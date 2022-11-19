@@ -1,7 +1,7 @@
 <template>
 <div>
     <div class="cardWrapper">
-        <journal-card v-for="journal in journalList" :key="journal.id" :journal="journal" class="journal_card"/>
+        <journal-card v-for="journal in journalList" :key="journal.journalId" :journal="journal" class="journal_card"/>
     </div>
     <p> Journals! </p>
 </div>
@@ -21,9 +21,8 @@ export default  {
         }
     },
     created() {
-        RequestService.getJourals()
-        .then(
-            (response) => {
+        RequestService.getAllJournals()
+        .then((response) => {
             console.log(response.data);
             this.journalList = response.data;
         })
@@ -42,7 +41,7 @@ body{
     justify-content:center;
 }
 .journal_card{
-    background-color: white;
+    background-color: rgb(184, 184, 184);
     width: 20%;
     padding-bottom: 30px;
     text-align: center;

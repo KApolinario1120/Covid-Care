@@ -103,7 +103,6 @@
       </div>
     </template>
     
-    
     <script>
     import AuthService from '../services/AuthService.js'
     export default {

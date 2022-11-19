@@ -2,38 +2,76 @@ import axios from 'axios';
 import authHeader from './auth-header';
 
 const http = axios.create({
-  baseURL: 'http://localhost:3000'
+  baseURL: 'http://localhost:8080'
 });
 
 export default {
 
-  login(user) {
-    return axios.post('/login', user)
-  },
-  register(user) {
-    return axios.post('/register', user)
+  //user methods below
+
+  getAllUsers() {
+    return axios.get(`/user`)
   },
 
-  findIngredient(term) {
-    return http.get(`/ingredient/search/${term}`)
-  },
-  findAppliance(term) {
-    return http.get(`/appliance/search/${term}`)
+  getUserById(userId) {
+    return axios.get(`/user/${userId}`)
   },
 
-  getRecipes() {
-    return http.get(`/recipes/all`, { headers: authHeader() });
+  register(newUser) {
+    return http.post(`/user/register`, user)
   },
-  addRecipe(recipe) {
-    return http.post(`/recipes/add`, recipe, {headers: authHeader()})
+  findIdByUsername(username) {
+    return http.get(`/user/userId/${username}`)
   },
-  editRecipe(recipe){
-    return http.put(`/recipes/edit`, recipe, {headers: authHeader()})
+
+  //symptom methods below
+
+  getAllSymptoms() {
+    return http.get(`/symptom`);
   },
-  searchRecipe(id) {
-    return http.get(`/recipes/search/${id}`, {headers: authHeader()})
+
+  getAllSymptomsByJournalId(journalId) {
+    return http.get(`/symptom/all/${journalId}`)
   },
-  deleteRecipe(recipe) {
-    return http.delete(`/recipes/delete`, {headers: authHeader(), data: recipe})
+
+  getSymptomById(symptomId) {
+    return http.get(`/symptom/${symptomId}`)
+  },
+
+  insertSymptomIntoJournalSymptom(journalId, symptomList) {
+    return http.post(`/symptom/journalId/${journalId}`, symptomList)
+  },
+
+  //journal methods below
+
+  getJournalByJournalId(journalId) {
+    return http.get(`/journal/${journalId}`);
+  },
+
+  getJournalByUserId(userId) {
+    return http.get(`/journal/user/${userId}`)
+  },
+
+  updateJournalEntry(journalId) {
+    return http.put(`/journal/update/${journalId}`)
+  },
+
+  createJournalEntry(journal) {
+    return http.post(`/journal/submit`, journal)
+  },
+
+  deleteJournalEntry(journalId) {
+    return http.delete(`/recipes/delete/${journalId}`)
   }
+
 }
+
+// getAllSymptomsByJournalId(journalId) {
+//   return http.post(`/recipes/add`, recipe, {headers: authHeader()})
+// },
+// getSymptomById(symptomId){
+//   return http.put(`/recipes/edit`, recipe, {headers: authHeader()})
+// },
+// insertSymptomIntoJournalSymptom(recipe) {
+//   return http.delete(`/recipes/delete`, {headers: authHeader(), data: recipe})
+// }

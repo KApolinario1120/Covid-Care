@@ -7,6 +7,10 @@
           <br>
           <span>Tested Positive? {{journal.testedPositive}}</span>
           <br>
+        <h3>Symptoms: </h3>
+        <p></p>
+          <br>
+          <h3>Joural Notes:</h3>
           <p>{{journal.notes}}</p>
         </div>
   
@@ -25,7 +29,8 @@ export default {
     name: "journal-details",
     data () {
     return{
-        journal: null 
+        journal: null,
+        symptoms: []
     }
 },
     created() {
@@ -33,7 +38,15 @@ export default {
     .then((response) => {
         console.log(response.data);
         this.journal = response.data;
-    })
+    });
+    // RequestService.getAllSymptomsByJournalId(this.$route.params.id)
+    // .then((response) => {
+    //     console.log(response.data);
+    //     response.data.forEach(element => {
+    //         this.symptoms.push(element.symptomName);
+    //     });
+        
+    // });
 },
 methods: {
     editJournal(journal){

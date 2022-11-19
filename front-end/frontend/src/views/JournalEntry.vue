@@ -379,14 +379,19 @@ export default {
 </script>
     
 <style scoped>
+h1 {
+    font-family: 'Railway', sans-serif;
+    text-align: center;
+}
 html,
 body {
     height: 100%;
     width: 100%;
+    padding: 25px;
 }
 
 body {
-    font-size: 16px;
+    font-size: 25px;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     padding: 0;
     margin: 0;

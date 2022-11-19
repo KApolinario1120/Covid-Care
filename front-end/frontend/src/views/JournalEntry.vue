@@ -135,7 +135,6 @@
 
         <form id="input-group-form">
             <div class="input-group">
-                <!-- <label for="feelings">How are you feeling or what other symptoms are you experiencing today?</label> -->
                 <textarea name="feelings" id="feelings" rows="7" class="input-item"
                     placeholder="Enter your feelings here"></textarea>
             </div>
@@ -413,7 +412,9 @@ body {
     color: #018601;
 }
 
-
+::placeholder {
+    color: black;
+}
 
 /* label {
         font-weight: bold;

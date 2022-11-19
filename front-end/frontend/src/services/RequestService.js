@@ -44,25 +44,25 @@ export default {
 
   //journal methods below
 
-  getJournalByJournalId() {
-    return http.get(`/symptom`);
+  getJournalByJournalId(journalId) {
+    return http.get(`/journal/${journalId}`);
   },
 
-  getJournalByUserId(journalId) {
-    return http.get(`/symptom/all/${journalId}`)
+  getJournalByUserId(userId) {
+    return http.get(`/journal/user/${userId}`)
   },
 
-  updateJournalEntry(symptomId) {
-    return http.get(`/symptom/${symptomId}`)
+  updateJournalEntry(journalId) {
+    return http.put(`/journal/update/${journalId}`)
   },
 
-  createJournalEntry(journalId, symptomList) {
-    return http.post(`/symptom/journalId/${journalId}`, symptomList)
+  createJournalEntry(journal) {
+    return http.post(`/journal/submit`, journal)
   },
 
-  
-
-
+  deleteJournalEntry(journalId) {
+    return http.delete(`/recipes/delete/${journalId}`)
+  }
 
 }
 

@@ -8,7 +8,7 @@
 
         <div class="p-2"></div>
 
-        <form onsubmit="return handleData()" method="post" action="https://postman-echo.com/post">
+        <form id="first-form" onsubmit="return handleData()" method="post" action="https://postman-echo.com/post">
             <p>Select all the symptoms you're experiencing today below:</p>
 
             <section>
@@ -280,6 +280,12 @@ export default {
 h1 {
     font-family: 'Railway', sans-serif;
     text-align: center;
+}
+#first-form {
+    background-color: rgb(255, 250, 244);
+    padding-left: 400px;
+    padding-top: 30px;
+    margin: 40px, 40px, 40px, 40px;
 }
 section, p {
     padding-left: 20px;

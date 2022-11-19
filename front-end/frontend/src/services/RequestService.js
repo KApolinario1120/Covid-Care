@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const http = axios.create({
-  baseURL: 'http://localhost:8080'
+  baseURL: 'http://localhost:3000'
 });
 
 export default {
@@ -42,6 +42,10 @@ export default {
   },
 
   //journal methods below
+
+  getAllJournals() {
+    return http.get('/journal/all');
+  },
 
   getJournalByJournalId(journalId) {
     return http.get(`/journal/${journalId}`);

@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import javax.validation.Valid;
 import java.awt.*;
 
+@CrossOrigin
 @RestController
 @RequestMapping("")
 public class JournalController {

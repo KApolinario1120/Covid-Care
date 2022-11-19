@@ -8,14 +8,14 @@
 
 <script>
 export default {
-    name: "journal-card",
+    name: 'journal-card',
     props: {
         journal: Object
     },
     methods: {
       routeToJournalDetails(journal){
       console.log("hit");
-      this.$router.push('/journals/'+journal.journalId)
+      this.$router.push('/journal/'+journal.journalId)
     }
   }
 }

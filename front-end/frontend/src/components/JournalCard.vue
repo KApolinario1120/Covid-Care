@@ -1,7 +1,9 @@
 <template>
   <div v-on:click.prevent="routeToJournalDetails(journal)">
       <span>{{journal.journalDate}}</span>
-      <span>Tested Positive? {{journal.testedPositive}}</span>
+      <br>
+      <br>
+      <span>Covid Test result: {{journal.testedPositive}}</span>
       <p>Notes: {{journal.notes}}</p>
   </div>
 </template>

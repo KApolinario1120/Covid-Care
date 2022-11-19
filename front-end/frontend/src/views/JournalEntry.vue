@@ -354,7 +354,7 @@ body {
 
 .input-group {
     margin-bottom: 2em;
-    background-color: rgb(236, 194, 111);
+    background-color: rgb(255, 250, 244);
     border-radius: 10px;
     padding: 40px;
     border-color: rgb(243, 219, 96);

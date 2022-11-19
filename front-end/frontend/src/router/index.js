@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../views/Home.vue'
+import Journals from '../views/Journals.vue'
+import JournalDetails from '../views/JournalDetails.vue'
 
 
 Vue.use(Router)
@@ -18,52 +20,39 @@ const router = new Router({
             requiresAuth: false
             }
         },
-        {
-            path: "/login",
-            name: "login",
-            component: Login,
+        // {
+        //     path: "/login",
+        //     name: "login",
+        //     component: Login,
+        //     meta: {
+        //       requiresAuth: false
+        //     }
+        //   },
+        //   {
+        //     path: "/logout",
+        //     name: "logout",
+        //     component: Logout,
+        //     meta: {
+        //       requiresAuth: false
+        //     }
+        //   },
+          {
+            path: "/Journals",
+            name: "journals",
+            component: Journals,
             meta: {
               requiresAuth: false
             }
           },
           {
-            path: "/logout",
-            name: "logout",
-            component: Logout,
+            path: "/JournalDetails",
+            name: "journal-details",
+            component: JournalDetails,
             meta: {
               requiresAuth: false
-            }
-          },
-          {
-            path: "/register",
-            name: "register",
-            component: Register,
-            meta: {
-              requiresAuth: false
-            }
-          },
-          {
-            path: "/recipes",
-            name: "recipes",
-            component: Recipes,
-            meta: {
-              requiresAuth: true
             }
           }
     ]
 })
-
-// *** For future authorization implementation ***
-// router.beforeEach((to, from, next) => {
-//     // Determine if the route requires Authentication
-//     const requiresAuth = to.matched.some(x => x.meta.requiresAuth);
-//     // If it does and they are not logged in, send the user to "/login"
-//     if (requiresAuth && store.state.token === '') {
-//       next("/login");
-//     } else {
-//       // Else let them go to their next destination
-//       next();
-//     }
-// });
   
 export default router;

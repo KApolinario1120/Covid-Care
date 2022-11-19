@@ -1,4 +1,45 @@
 <template>
+  <div v-on:click.prevent="routeToJournalDetails(journal)">
+      <span>{{journal.journalDate}}</span>
+      <span>Tested Positive? {{journal.testedPositive}}</span>
+      <p>Notes: {{journal.notes}}</p>
+  </div>
+</template>
+
+<script>
+export default {
+    name: "recipe-card",
+    props: {
+        journal: Object
+    },
+    methods: {
+      routeToJournalDetails(recipe){
+      console.log("hit");
+      this.$router.push('/journal/'+journal.journalId)
+    }
+  }
+}
+</script>
+
+<style scoped>
+span{
+    font-weight: bolder;
+    font-size: 150%;
+    line-height: 30px;
+}
+p{
+    padding-top: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 100%;
+}
+img{
+  width: 100%;
+  max-height: 200px;
+}
+</style>
+
+<!-- <template>
   <div class="journal-card">
     <img src= {{ gamePhoto }}>
     <h1>{{ gameName }}</h1>
@@ -35,4 +76,4 @@ ul {
 a {
   color: #42b983;
 }
-</style>
+</style> -->

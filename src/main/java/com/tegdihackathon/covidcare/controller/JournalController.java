@@ -35,8 +35,8 @@ public class JournalController {
     }
 
     @RequestMapping(path = "journal/all", method = RequestMethod.GET)
-    public List<Journal> getAllJournals(@PathVariable int userId) {
-        List<Journal> allJournals = journalDao.getAllJournalsByUserId(userId);
+    public List<Journal> getAllJournals() {
+        List<Journal> allJournals = journalDao.getAllJournals();
         if (allJournals == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No journals could be found.");
         } else {

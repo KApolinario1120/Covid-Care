@@ -12,6 +12,7 @@
 
 <style>
 
+
 body {
   /* background-image: url('https://cdn.discordapp.com/attachments/872641665314222100/963544684028895253/wood.jpg'); */
 }
@@ -21,8 +22,8 @@ router-link {
 }
 
 nav {
-  justify-content: space-between;
-  margin-bottom: 5%;
+  justify-content: space-around;
+  margin-bottom: 15%;
   background-color: cornsilk;
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
@@ -40,6 +41,7 @@ nav {
     border: 5px solid rgb(230, 213, 195);
     background-color: cornsilk;
     border-radius: 10px;
+    margin: 15px 20px 15px 20px;
 
 }
 </style>

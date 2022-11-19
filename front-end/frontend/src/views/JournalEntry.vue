@@ -8,6 +8,7 @@
 
         <div class="p-2"></div>
 
+        <div id="form-div">
         <form id="first-form" onsubmit="return handleData()" method="post" action="https://postman-echo.com/post">
             <p>Select all the symptoms you're experiencing today below:</p>
 
@@ -126,11 +127,13 @@
                         for="langs_other">Other</label>
                 </div>
             </section>
+        
 
             <!-- <div >
                 <input id="submit" type="submit" name="submit" value="Submit" />
             </div> -->
         </form>
+    </div>
 
 
         <form id="input-group-form">
@@ -147,7 +150,9 @@
         <label for = "start" id="date-start"> 
             <h2>Enter Date: </h2>
         </label>
+        <div id="date-button">
         <input type ="date" id="start" name="date" value="2020-01-01">
+        </div>
     </div>
 </template>
     
@@ -281,9 +286,16 @@ h1 {
     font-family: 'Railway', sans-serif;
     text-align: center;
 }
+#div-form {
+    padding: 40px;
+    margin: 40px, 40px, 40px, 40px;
+}
 #first-form {
     background-color: rgb(255, 250, 244);
-    padding-left: 400px;
+    margin-left: 50px;
+    margin-right: 50px;
+    border-radius: 15px;
+    padding-left: 75px;
     padding-top: 30px;
     margin: 40px, 40px, 40px, 40px;
 }
@@ -343,7 +355,8 @@ body {
 .input-group {
     margin-bottom: 2em;
     background-color: rgb(236, 194, 111);
-    padding: 30px;
+    border-radius: 10px;
+    padding: 40px;
     border-color: rgb(243, 219, 96);
     color: black;
 }
@@ -396,7 +409,15 @@ body {
 }
 #input-group-form {
     padding: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
     color: black;
+}
+
+#date-start {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
 }
 
 #start {
@@ -404,6 +425,15 @@ body {
     font: 1rem 'Raleway', serif;
     margin: .4rem 0;
     padding: 20px;
+}
+
+#date-button {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 40px;
+    margin-bottom: 40px;
 }
 
 .error {

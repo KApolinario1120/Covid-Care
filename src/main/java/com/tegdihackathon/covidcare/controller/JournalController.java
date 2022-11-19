@@ -4,6 +4,8 @@ import com.tegdihackathon.covidcare.dao.JournalDao;
 import com.tegdihackathon.covidcare.model.Journal;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -34,7 +36,12 @@ public class JournalController {
 
     @RequestMapping(path = "journal/all", method = RequestMethod.GET)
     public List<Journal> getAllJournals(@PathVariable int userId) {
-        return journalDao.getAllJournalsByUserId(userId);
+        List<Journal> allJournals = journalDao.getAllJournalsByUserId(userId);
+        if (allJournals == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No journals could be found.");
+        } else {
+            return allJournals;
+        }
     }
 
     //Update a journal entry

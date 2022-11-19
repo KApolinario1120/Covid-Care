@@ -47,27 +47,6 @@ public class UserController {
     public int findIdByUsername(String username) {return userDao.findIdByUsername(username);
     }
 
-
-//
-//    //get a user ID by username
-//    User findIdByUserName(String userName);
-//
-//    //Update a user
-//    User updateUser(User user, String userName);
-//
-//    //Delete a user
-//    User deleteUser(User user, String username);
-
-
-//    @RequestMapping (path = "/{userName}", method = RequestMethod.GET)
-//    public User findUserByUserName(String userName) {
-//        User user = userDao.findIdByUserName(userName);
-//        if (user == null) {
-//            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found.");
-//        } else {
-//            return user;
-//        }
-//    }
-    }
+}
 
 

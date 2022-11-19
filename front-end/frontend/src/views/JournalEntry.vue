@@ -1,273 +1,478 @@
 <template>
     <div>
-    
-    <div class="mx-auto col-md-7" >
-    
-    <h1 class="text-center"> Today's Journal </h1>
-    
-    <br>
-    <br>
-    <br>
-    <form>
-    
-    <!-- username -->
-        <label for="username">Username:</label>
-        <b-form-group
-            id="fieldset-1"
-            description="What is your username?"
-            label="username:"
-            label-for="username">
-            <b-form-input id="username" v-model="username" trim></b-form-input>
-        </b-form-group>
+        <h1 class="headline">
+            Covid Care Journal
+        </h1>
 
-    <!-- password -->
-        <br>
-        <br>
-        <label for="password">Password:</label>
-        <b-form-group
-            id="fieldset-1"
-            description="What is your password?"
-            label="password:"
-            label-for="password">
-            <b-form-input id="password" v-model="password" trim></b-form-input>
-        </b-form-group>
+        <div id="feedback" class=""></div>
 
-    <!-- notes -->
-        <br>
-        <br>
-        <label for="notes">Notes:</label>
-        <b-form-textarea
-            id="notes"
-            v-model="description"
-            placeholder="add multiple lines"
-            rows="3"
-            max-rows="6"
-        ></b-form-textarea>
+        <div class="p-2"></div>
 
-        <br>
-        <br>
-    <!-- temperature -->
-            <label for="temperature">Temperature:</label>
-        <b-form-group
-            id="fieldset-1"
-            description="Did you measure your temperature today?"
-            label="temperature:"
-            label-for="temperature">
-            <b-form-input id="temperature" v-model="temperature" trim></b-form-input>
-        </b-form-group>
+        <form onsubmit="return handleData()" method="post" action="https://postman-echo.com/post">
+            <p>Select all the symptoms you're expericing today below:</p>
 
-    <!-- symptom check boxes -->
-        <br>
-        <br>
-        <b-form-group label="Using options array:" v-slot="{ ariaDescribedby }">
-      <b-form-checkbox-group
-        id="checkbox-group-1"
-        v-model="selected"
-        :options="options"
-        :aria-describedby="ariaDescribedby"
-        name="flavour-1"
-      ></b-form-checkbox-group>
-    </b-form-group>
+            <section>
+                <div>
+                    <h2>General Symptoms</h2>
+                    <input type="checkbox" name="langs" id="langs_fatigue" value="fatigue" checked> <label
+                        for="langs_fatigue">Tiredness or fatigue</label>
+                </div>
 
-    <b-form-group label="Using sub-components:" v-slot="{ ariaDescribedby }">
-      <b-form-checkbox-group
-        id="checkbox-group-2"
-        v-model="selected"
-        :aria-describedby="ariaDescribedby"
-        name="flavour-2"
-      >
-        <b-form-checkbox value="fatigue">Tiredness or fatigue that interferes with daily life</b-form-checkbox>
-        <b-form-checkbox value="post-exertional malaise">Symptoms that get worse after physical or mental effort (also known as “post-exertional malaise”)</b-form-checkbox>
-        <b-form-checkbox value="fever">Fever</b-form-checkbox>
-        <b-form-checkbox value="shortness of breath">Difficulty breathing or shortness of breath</b-form-checkbox>
-        <b-form-checkbox value="cough">Cough</b-form-checkbox>
-        <b-form-checkbox value="chest pain">Chest pain</b-form-checkbox>
-        <b-form-checkbox value="heart palpitations">Fast-beating or pounding heart (also known as heart palpitations)</b-form-checkbox>
-        <b-form-checkbox value="difficulty thinking or concentration">Difficulty thinking or concentrating (sometimes referred to as “brain fog”)</b-form-checkbox>
-        <b-form-checkbox value="Headache">Headache</b-form-checkbox>
-        <b-form-checkbox value="Sleep problems">Difficulty sleeping or waking</b-form-checkbox>
-        <b-form-checkbox value="dizziness">Dizziness when you stand up (lightheadedness)</b-form-checkbox>
-        <b-form-checkbox value="Pins-and-needles feelings">Pins-and-needles feelings</b-form-checkbox>
-        <b-form-checkbox value="Change in smell or taste">Change in smell or taste</b-form-checkbox>
-        <b-form-checkbox value="Depression or anxiety">Depression or anxiety</b-form-checkbox>
-        <b-form-checkbox value="Diarrhea">Diarrhea</b-form-checkbox>
-        <b-form-checkbox value="Stomach pain">Stomach pain</b-form-checkbox>
-        <b-form-checkbox value="Joint or muscle pain">Joint or muscle pain</b-form-checkbox>
-        <b-form-checkbox value="Rash">Rash</b-form-checkbox>
-        <b-form-checkbox value="Changes in menstrual cycles">Changes in menstrual cycles</b-form-checkbox>
-      </b-form-checkbox-group>
-    </b-form-group>
-        
-      </form>
-      </div>
-      </div>
-    </template>
+                <div>
+                    <input type="checkbox" name="langs" id="langs_malaise" value="malaise"> <label
+                        for="langs_malaise">Post-exertional malaise(Symptoms that get worse after physical or mental
+                        effort) </label>
+                </div>
+
+                <div>
+                    <input type="checkbox" name="langs" id="langs_fever" value="fever"> <label
+                        for="langs_fever">Fever</label>
+                </div>
+            </section>
+
+            <section>
+                <h2>Respiratory and heart symptoms</h2>
+                <div>
+                    <input type="checkbox" name="langs" id="langs_breath" value="breath" checked> <label
+                        for="langs_breath">Difficulty breathing or shortness of breath</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" name="langs" id="langs_cough" value="cough" checked> <label
+                        for="langs_cough">Cough</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" name="langs" id="langs_chestpain" value="chestpain" checked> <label
+                        for="langs_chestpain">Chest pain</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" name="langs" id="langs_heart" value="heart" checked> <label
+                        for="langs_heart">Heart palpitations</label>
+                </div>
+            </section>
+
+            <section>
+                <h2>Neurological symptoms</h2>
+                <div>
+                    <input type="checkbox" name="langs" id="langs_brain" value="brain" checked> <label
+                        for="langs_brain">Brain fog</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" name="langs" id="langs_heart" value="heart" checked> <label
+                        for="langs_heart">Headache</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" name="langs" id="langs_sleep" value="sleep" checked> <label
+                        for="langs_sleep"> Sleep problems</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" name="langs" id="langs_lh" value="lh" checked> <label
+                        for="langs_lh">Lightheadedness when standing up</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" name="langs" id="langs_pn" value="pn" checked> <label
+                        for="langs_pn">Pins-and-needles feelings</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" name="langs" id="langs_smell" value="smell" checked> <label
+                        for="langs_smell">Change in smell or taste</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" name="langs" id="langs_da" value="da" checked> <label
+                        for="langs_da">Depression or anxiety</label>
+                </div>
+            </section>
+
+            <section>
+                <h2>Digestive symptoms</h2>
+                <div>
+                    <input type="checkbox" name="langs" id="langs_diarrhea" value="" checked> <label
+                        for="langs_diarrhea">Diarrhea</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" name="langs" id="langs_stomach" value="stomach" checked> <label
+                        for="langs_stomach">Stomach pain</label>
+                </div>
+            </section>
+
+            <section>
+                <h2>Other symptoms</h2>
+                <div>
+                    <input type="checkbox" name="langs" id="langs_jm" value="jm" checked> <label for="langs_jm">Joint or
+                        muscle pain</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" name="langs" id="langs_rash" value="rash" checked> <label
+                        for="langs_rash">Rash</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" name="langs" id="langs_period" value="period" checked> <label
+                        for="langs_period">Changes in menstrual cycles</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" name="langs" id="langs_other" value="other" checked> <label
+                        for="langs_other">Other</label>
+                </div>
+            </section>
+
+            <div>
+                <input type="submit" name="submit" value="Submit" />
+            </div>
+        </form>
+
+
+        <form>
+            <div class="input-group">
+                <label for="feelings">How are you feeling or what other symptoms are you experiencing today?</label>
+                <textarea name="feelings" id="feelings" rows="7" class="input-item"
+                    placeholder="Enter your feelings here"></textarea>
+            </div>
+
+            <div class="text-right">
+                <input class="button" type="submit" id="save" value="Save">
+            </div>
+        </form>
+
+        <div id="calanderholder">
+            <h2 class="subtitle">Most recent entry</h2>
+
+            <div class="container col-sm-4 col-md-7 col-lg-4 mt-5">
+                <div class="card">
+                    <h3 class="card-header" id="monthAndYear"></h3>
+
+                    <table class="table table-bordered table-responsive-sm" id="calendar">
+                        <thead>
+                            <tr>
+                                <th>Sun</th>
+                                <th>Mon</th>
+                                <th>Tue</th>
+                                <th>Wed</th>
+                                <th>Thu</th>
+                                <th>Fri</th>
+                                <th>Sat</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="calendar-body"></tbody>
+                    </table>
+
+                    <div class="form-inline">
+
+                        <button class="btn btn-outline-primary col-sm-6" id="previous"
+                            onclick="previous()">Previous</button>
+
+                        <button class="btn btn-outline-primary col-sm-6" id="next" onclick="next()">Next</button>
+                    </div>
+
+                    <br />
+
+                    <form class="form-inline">
+                        <label class="lead mr-2 ml-2" for="month">Jump To: </label>
+
+                        <select class="form-control col-sm-4" name="month" id="month" onchange="jump()">
+                            <option value=0>Jan</option>
+                            <option value=1>Feb</option>
+                            <option value=2>Mar</option>
+                            <option value=3>Apr</option>
+                            <option value=4>May</option>
+                            <option value=5>Jun</option>
+                            <option value=6>Jul</option>
+                            <option value=7>Aug</option>
+                            <option value=8>Sep</option>
+                            <option value=9>Oct</option>
+                            <option value=10>Nov</option>
+                            <option value=11>Dec</option>
+                        </select>
+
+                        <label for="year"></label><select class="form-control col-sm-4" name="year" id="year"
+                            onchange="jump()">
+                            <option value=1990>1990</option>
+                            <option value=1991>1991</option>
+                            <option value=1992>1992</option>
+                            <option value=1993>1993</option>
+                            <option value=1994>1994</option>
+                            <option value=1995>1995</option>
+                            <option value=1996>1996</option>
+                            <option value=1997>1997</option>
+                            <option value=1998>1998</option>
+                            <option value=1999>1999</option>
+                            <option value=2000>2000</option>
+                            <option value=2001>2001</option>
+                            <option value=2002>2002</option>
+                            <option value=2003>2003</option>
+                            <option value=2004>2004</option>
+                            <option value=2005>2005</option>
+                            <option value=2006>2006</option>
+                            <option value=2007>2007</option>
+                            <option value=2008>2008</option>
+                            <option value=2009>2009</option>
+                            <option value=2010>2010</option>
+                            <option value=2011>2011</option>
+                            <option value=2012>2012</option>
+                            <option value=2013>2013</option>
+                            <option value=2014>2014</option>
+                            <option value=2015>2015</option>
+                            <option value=2016>2016</option>
+                            <option value=2017>2017</option>
+                            <option value=2018>2018</option>
+                            <option value=2019>2019</option>
+                            <option value=2020>2020</option>
+                            <option value=2021>2021</option>
+                            <option value=2022>2022</option>
+                            <option value=2023>2023</option>
+                            <option value=2024>2024</option>
+                            <option value=2025>2025</option>
+                            <option value=2026>2026</option>
+                            <option value=2027>2027</option>
+                            <option value=2028>2028</option>
+                            <option value=2029>2029</option>
+                            <option value=2030>2030</option>
+                        </select>
+                    </form>
+                </div>
+            </div>
+
+            <section>
+                <h3 class="subtitle-secondary">Extra Notes</h3>
+                <div class="entry-item" id="content"></div>
+            </section>
+
+        </div>
+    </div>
+</template>
     
-    <script>
-    import AuthService from '../services/AuthService.js'
-    export default {
-        name: 'journal-entry',
-        data () {
-            return {
-                ingredients: [],
-                ingredient: '',
-                ingredientMeasurement: null,
-                ingredientQuantity: null,
-                appliances: [],
-                appliance: '',
-                name: '',
-                recipePhoto: '',
-                description: '',
-                instructions: '',
-                servings: null,
-                difficulty: 1,
-                ingredientList: [],
-                // List of search ingredients returned from DB
-                applianceList: [],
-                // List of search appliances returned from DB
-                servingOptions: [
-                    {value: '1', text: '1'}, 
-                    {value: '2', text: '2'},
-                    {value: '3', text: '3'},
-                    {value: '4', text: '4'},
-                    {value: '5', text: '5'},
-                    {value: '6', text: '6'},
-                    {value: '7', text: '7'},
-                    {value: '8', text: '8'},
-                    {value: '9', text: '9'},
-                    {value: '10', text: '10'},
-                    {value: '11', text: '11'},
-                    {value: '12', text: '12'},
-                    {value: '13', text: '13'},
-                    {value: '14', text: '14'},
-                    {value: '15', text: '15'},
-                ],
-                measurementOptions: [
-                    {value: 'bunch', text: 'bunch'},
-                    {value: 'cup', text: 'cup'},
-                    {value: 'fluid oz', text: 'fluid oz'},
-                    {value: 'ft', text: 'ft'},
-                    {value: 'gal', text: 'gal'},
-                    {value: 'gm', text: 'gm'},
-                    {value: 'in', text: 'in'},
-                    {value: 'lbs', text: 'lbs'},
-                    {value: 'L', text: 'L'},
-                    {value: 'ml', text: 'ml'},
-                    {value: 'mg', text: 'mg'},
-                    {value: 'oz', text: 'oz'},
-                    {value: 'pinch', text: 'pinch'},
-                    {value: 'pt', text: 'pt'},
-                    {value: 'tbsp', text: 'tbsp'},
-                    {value: 'tsp', text: 'tsp'},
-                    {value: 'unit', text: 'unit'},
-                    {value: 'whole', text: 'whole'}
-                    
-                ]
+    
+<script>
+import AuthService from '../services/AuthService.js'
+export default {
+    name: 'journal-entry',
+    data() {
+        return {
+            ingredients: [],
+            ingredient: '',
+            ingredientMeasurement: null,
+            ingredientQuantity: null,
+            appliances: [],
+            appliance: '',
+            name: '',
+            recipePhoto: '',
+            description: '',
+            instructions: '',
+            servings: null,
+            difficulty: 1,
+            ingredientList: [],
+            // List of search ingredients returned from DB
+            applianceList: []
+        }
+    },
+    methods: {
+        addSymptomToArray() {
+            console.log(this.symptoms)
+            // TODO
+            let ingredientObject = {
+                ingredient_id: null,
+                name: this.ingredient,
+                quantity: this.ingredientQuantity,
+                measurement: this.ingredientMeasurement
             }
+            for (let index = 0; index < this.ingredientList.length; index++) {
+                if (this.ingredient.toLowerCase().trim() === this.ingredientList[index].name.toLowerCase().trim()) {
+                    ingredientObject.ingredient_id = this.ingredientList[index].id;
+                }
+            }
+            if (ingredientObject.quantity == null || ingredientObject.quantity == '' || ingredientObject.measurement == null || ingredientObject.measurement == '') {
+                alert("Ingredient needs measurement and quantity.");
+            } else {
+                this.ingredients.push(ingredientObject);
+                console.log(this.ingredients);
+            }
+
         },
-        methods: {
-            addIngredientToArray(){
-                console.log(this.ingredients)
-                let ingredientObject = {
-                    ingredient_id: null,
-                    name: this.ingredient,
-                    quantity: this.ingredientQuantity,
-                    measurement: this.ingredientMeasurement
+        removeIngredientFromArray(ingredient) {
+            this.ingredients = this.ingredients.filter(element => {
+                return element !== ingredient;
+            })
+        },
+        addApplianceToArray() {
+            let applianceObject = {
+                id: null,
+                name: this.appliance
+            }
+            for (let index = 0; index < this.applianceList.length; index++) {
+                if (this.appliance.toLowerCase().trim() === this.applianceList[index].name.toLowerCase().trim()) {
+                    applianceObject.id = this.applianceList[index].id;
                 }
-                for (let index = 0; index < this.ingredientList.length; index++) {
-                    if (this.ingredient.toLowerCase().trim() === this.ingredientList[index].name.toLowerCase().trim()){
-                        ingredientObject.ingredient_id = this.ingredientList[index].id;
-                    }
-                }
-                if(ingredientObject.quantity == null || ingredientObject.quantity == '' || ingredientObject.measurement == null || ingredientObject.measurement == '' ) {
-                    alert("Ingredient needs measurement and quantity.");
-                } else {
-                    this.ingredients.push(ingredientObject);
-                    console.log(this.ingredients);
-                }
-                
-            },
-            removeIngredientFromArray(ingredient) {
-                this.ingredients = this.ingredients.filter( element => {
-                    return element !== ingredient;
-                })
-            },
-            addApplianceToArray(){
-                let applianceObject = {
-                    id: null,
-                    name: this.appliance
-                }
-                for (let index = 0; index < this.applianceList.length; index++) {
-                    if(this.appliance.toLowerCase().trim() === this.applianceList[index].name.toLowerCase().trim()){
-                        applianceObject.id = this.applianceList[index].id;
-                    }
-                }
-                this.appliances.push(applianceObject);
-                console.log(this.appliances);
-            },
-            removeApplianceFromArray(appliance) {
-                this.appliances = this.appliances.filter( element => {
-                    return element !== appliance;
-                })
-            },
-            submitRecipe(){
-                console.log(this.getRecipe);
-                if(this.name !== '' && this.instructions !== '') {
-                    AuthService.addRecipe(this.getRecipe)
+            }
+            this.appliances.push(applianceObject);
+            console.log(this.appliances);
+        },
+        removeApplianceFromArray(appliance) {
+            this.appliances = this.appliances.filter(element => {
+                return element !== appliance;
+            })
+        },
+        submitRecipe() {
+            console.log(this.getRecipe);
+            if (this.name !== '' && this.instructions !== '') {
+                AuthService.addRecipe(this.getRecipe)
                     .then((response) => {
                         console.log(response.data);
-                        this.$router.push('/recipes/'+response.data.id);
-                })
-                } else {
-                    alert("Recipe name and instructions cannot be empty");
-                }
-            },
-            searchIngredientList(){
-                this.ingredientList = [];
-                if(this.ingredient !== '') {
-                    console.log(this.ingredient);
-                    AuthService.findIngredient(this.ingredient)
+                        this.$router.push('/recipes/' + response.data.id);
+                    })
+            } else {
+                alert("Recipe name and instructions cannot be empty");
+            }
+        },
+        searchIngredientList() {
+            this.ingredientList = [];
+            if (this.ingredient !== '') {
+                console.log(this.ingredient);
+                AuthService.findIngredient(this.ingredient)
                     .then((response) => {
                         response.data.forEach(element => {
                             this.ingredientList.push(element);
                         });
                     })
-                    console.log(this.ingredientList);
-                }
-            },
-            searchApplianceList(){
-                this.applianceList = [];
-                if(this.appliance !== '') { 
-                    AuthService.findAppliance(this.appliance)
+                console.log(this.ingredientList);
+            }
+        },
+        searchApplianceList() {
+            this.applianceList = [];
+            if (this.appliance !== '') {
+                AuthService.findAppliance(this.appliance)
                     .then((response) => {
                         response.data.forEach(element => {
                             this.applianceList.push(element);
                         });
                     })
-                    console.log(this.applianceList);
-                }
+                console.log(this.applianceList);
             }
-        },
-        computed: {
-            getJournal() {
-                return {
-                    name: this.name,
-                    photo_url: this.recipePhoto,
-                    description: this.description,
-                    instructions: this.instructions,
-                    servings: Number(this.servings),
-                    difficulty: Number(this.difficulty),
-                    ingredientList: this.ingredients,
-                    applianceList: this.appliances
-                }
+        }
+    },
+    computed: {
+        getJournal() {
+            return {
+                name: this.name,
+                photo_url: this.recipePhoto,
+                description: this.description,
+                instructions: this.instructions,
+                servings: Number(this.servings),
+                difficulty: Number(this.difficulty),
+                ingredientList: this.ingredients,
+                applianceList: this.appliances
             }
         }
     }
-    </script>
+}
+</script>
     
-    <style scoped>
+<style scoped>
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
 
-    label {
+body {
+    font-size: 16px;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    padding: 0;
+    margin: 0;
+    color: #333333;
+}
+
+.wrapper {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 100%;
+    padding: 3em;
+    justify-content: center;
+    grid-gap: 1em;
+    font-family: 'Oswald', sans-serif;
+}
+
+.headline {
+    font-size: 3em;
+}
+
+.subtitle {
+    font-size: 2em;
+}
+
+.subtitle-secondary {
+    font-size: 1.75em;
+}
+
+.input-group {
+    margin-bottom: 2em;
+}
+
+.input-item {
+    width: 100%;
+    padding-top: 0.75em;
+    font-size: 1.5em;
+    font-family: 'Oswald', sans-serif;
+    background: transparent;
+    outline: none !important;
+    border: none;
+    border-radius: 0 !important;
+    -webkit-appearance: none;
+    border-bottom: 1px solid #979797;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    font-weight: 400;
+    color: #575757;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-capitalize {
+    text-transform: capitalize;
+}
+
+.button {
+    font-size: 1.5em;
+    background-color: #575757;
+    font-family: 'Owsald', sans-serif;
+    color: #FFF;
+    padding: 0.5em 1.25em;
+    cursor: pointer;
+}
+
+#feedback {
+    padding: 1em;
+    border-radius: 0.25em;
+    transition: all 0.5 ease-in-out;
+}
+
+.error {
+    border: 1px solid #F00;
+    color: #F00;
+}
+
+.success {
+    border: 1px solid #018601;
+    color: #018601;
+}
+
+/* label {
         font-weight: bold;
         margin-left: 20px;
         font-family:"Raleway", serif;
@@ -277,13 +482,13 @@
     .mx-auto {
         padding-top: 20px;
         margin-top: 20px;
-        /* border: 5px solid rgb(230, 213, 195);
-        background-color: cornsilk; */
+        border: 5px solid rgb(230, 213, 195);
+        background-color: cornsilk;
         border-radius: 10px;
     }
 
     h1 {
         text-align: center;
         font-family:"Raleway", serif;
-    }
-    </style>
+    } */
+</style>

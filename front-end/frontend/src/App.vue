@@ -15,20 +15,27 @@ body {
    /* background-image: url('https://cdn.discordapp.com/attachments/872641665314222100/963544684028895253/wood.jpg');  */
 } 
 
-a{
+a {
   color: black;
+  text-decoration: none;
 }
 
 a:hover {
 color: white;
 }
 
+#home-link, #journal-list-link, #create-journal-link {
+  width: 1/3;
+}
+
 nav {
-  justify-content: space-around;
+  /* justify-content: space-around; */
   /* margin-bottom: 15%; */
+  justify-content: center;
+  justify-content: space-around;
   font-family: Georgia, Arial, Helvetica, sans-serif;
   display: flex;
-  flex-grow: 1;
+  /* flex-grow: 1; */
   flex-direction: row;
   font-size: 30px;
   /* border: 5px solid rgb(223, 139, 50);  */
@@ -42,13 +49,13 @@ nav {
 
 router-link {
   justify-content: space-around;
-  background-color: rgb(84, 84, 84);;
+  flex-grow: 1;
+  background-color: rgba(105, 104, 104, 0.377);;
   /* border-radius: 15px; */
   text-align: center;
+
   padding: 15px 20px 15px 20px;
-
 }
-
 
 .parent {
   background-color: rgb(255, 255, 255);

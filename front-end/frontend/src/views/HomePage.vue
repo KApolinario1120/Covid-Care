@@ -22,7 +22,7 @@ font-family:"Playfair Display", serif; font-weight:400;
 }
 #Home h1 span {
 margin-top: 5px;
-font-size:15px; color:white; word-spacing:1px; font-weight:normal; letter-spacing:3px;
+font-size:15px; color:black; word-spacing:1px; font-weight:normal; letter-spacing:3px;
 text-transform: uppercase; font-family:"Raleway", sans-serif; font-weight:500;
 display: grid;
 grid-template-columns: 1fr max-content 1fr;
@@ -37,7 +37,7 @@ height: 5px;
 background-color:#f8f8f8;
 }
 #Home h3 {
-text-align:center; font-size:30px; text-transform:uppercase; color:white; letter-spacing:5px;
+text-align:center; font-size:30px; text-transform:uppercase; color:black; letter-spacing:5px;
 font-family:"Playfair Display", serif; font-weight:200;
 padding-top: 2rem;
 }
@@ -45,7 +45,7 @@ padding-top: 2rem;
 text-align: center;
 }
 #Home p{
-text-align:center; font-size:15px; text-transform:uppercase; color:white; letter-spacing:1px;
+text-align:center; font-size:15px; text-transform:uppercase; color:black; letter-spacing:1px;
 font-family:"Playfair Display", serif;
 }
 </style>

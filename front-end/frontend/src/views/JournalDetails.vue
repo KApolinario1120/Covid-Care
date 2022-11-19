@@ -29,7 +29,7 @@ export default {
     }
 },
     created() {
-    RequestService.createJournalEntry(this.$route.params.id)
+    RequestService.getJournalByJournalId(this.$route.params.id)
     .then((response) => {
         console.log(response.data);
         this.journal = response.data;
@@ -44,7 +44,7 @@ methods: {
     console.log(journal);
     RequestService.deleteJournal(journal)
     .then(() => {
-        this.$router.push('/Journals');
+        this.$router.push('/journal-list');
     })
     }
 }

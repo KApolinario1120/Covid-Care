@@ -17,7 +17,7 @@ name: "home-page"
 
 <style scoped>
 #Home h1 {
-text-align:left; font-size:50px; text-transform:uppercase; color:white; letter-spacing:5px;
+text-align:left; font-size:50px; text-transform:uppercase; color:black; letter-spacing:5px;
 font-family:"Playfair Display", serif; font-weight:400;
 }
 #Home h1 span {

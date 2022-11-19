@@ -1,9 +1,9 @@
 <template>
   <div id="app">
       <nav>
-        <router-link v-bind:to="{ name: 'home-page' }"> Home </router-link>
-        <router-link v-bind:to="{ name: 'journal-list' }"> View All Journal Entries </router-link>
-        <router-link v-bind:to="{ name: 'create-journal' }"> Add Journal Entry </router-link>
+        <router-link id="home-link" v-bind:to="{ name: 'home-page' }"> Home </router-link>
+        <router-link id="journal-list-link" v-bind:to="{ name: 'journal-list' }"> View All Journal Entries </router-link>
+        <router-link id="create-journal-link" v-bind:to="{ name: 'create-journal' }"> Add Journal Entry </router-link>
       </nav>
     <router-view />
     </div>
@@ -15,7 +15,13 @@ body {
    /* background-image: url('https://cdn.discordapp.com/attachments/872641665314222100/963544684028895253/wood.jpg');  */
 } 
 
+a{
+  color: black;
+}
 
+a:hover {
+color: white;
+}
 
 nav {
   justify-content: space-around;
@@ -25,8 +31,8 @@ nav {
   flex-grow: 1;
   flex-direction: row;
   font-size: 30px;
-  /* border: 5px solid rgb(223, 139, 50); */
-  /* background-color: rgb(62, 49, 215); */
+  /* border: 5px solid rgb(223, 139, 50);  */
+  background-color: rgb(108, 108, 109);
   border-radius: 10px;
   margin: 15px 20px 15px 20px;
   color: white;

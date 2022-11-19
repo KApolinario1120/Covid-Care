@@ -412,6 +412,7 @@ body {
     padding-left: 50px;
     padding-right: 50px;
     color: black;
+    font-family: Owsald;
 }
 
 #date-start {
@@ -422,7 +423,7 @@ body {
 
 #start {
     display: block;
-    font: 1rem 'Raleway', serif;
+    font: 2rem 'Raleway', serif;
     margin: .4rem 0;
     padding: 20px;
 }

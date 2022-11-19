@@ -74,7 +74,7 @@ align-items: center;
 content: " ";
 display: block;
 height: 5px;
-background-color:#f8f8f8;
+background-color:rgb(241, 123, 155);
 }
 #Home h3 {
 text-align:center; font-size:30px; color:black; letter-spacing:5px;

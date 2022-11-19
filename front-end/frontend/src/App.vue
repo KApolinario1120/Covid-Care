@@ -9,7 +9,7 @@
             <router-link id="journal-list-link" v-bind:to="{ name: 'journal-list' }"> View All Journal Entries </router-link>
           <!-- </li>
           <li> -->
-            <router-link id="create-journal-link" v-bind:to="{ name: 'create-journal' }"> Add Journal Entry </router-link>
+            <router-link id="create-journal-link" v-bind:to="{ name: 'journal-entry' }"> Add Journal Entry </router-link>
           <!-- </li>
       </ul> -->
       </nav>

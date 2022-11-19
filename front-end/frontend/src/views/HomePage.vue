@@ -58,7 +58,7 @@ iframe {
 }
 #Home h1 {
 text-align:left; font-size:50px; text-transform:uppercase; color:black; letter-spacing:5px;
-font-family:"Playfair Display", serif; font-weight:400;
+font-family:"Railway", serif; font-weight:400;
 }
 #Home h1 span {
 margin-top: 5px;
@@ -78,7 +78,7 @@ background-color:#f8f8f8;
 }
 #Home h3 {
 text-align:center; font-size:30px; color:black; letter-spacing:5px;
-font-family:"Playfair Display", serif; font-weight:200;
+font-family:"Railway", serif; font-weight:200;
 line-height: 50px;
 padding-top: 2rem;
 padding-left: 5rem;
@@ -95,6 +95,6 @@ text-align: center;
 }
 #Home p{
 text-align:center; font-size:20px; color:black; letter-spacing:1px;
-font-family:"Playfair Display", serif; font-style: italic;
+font-family:"Railway", serif; font-style: italic;
 }
 </style>

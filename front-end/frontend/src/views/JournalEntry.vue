@@ -31,7 +31,6 @@
             label-for="password">
             <b-form-input id="password" v-model="password" trim></b-form-input>
         </b-form-group>
-    
 
     <!-- notes -->
         <br>

@@ -9,12 +9,12 @@
         <div class="p-2"></div>
 
         <form onsubmit="return handleData()" method="post" action="https://postman-echo.com/post">
-            <p>Select all the symptoms you're expericing today below:</p>
+            <p>Select all the symptoms you're experiencing today below:</p>
 
             <section>
                 <div>
                     <h2>General Symptoms</h2>
-                    <input type="checkbox" name="langs" id="langs_fatigue" value="fatigue" checked> <label
+                    <input type="checkbox" name="langs" id="langs_fatigue" value="fatigue" > <label
                         for="langs_fatigue">Tiredness or fatigue</label>
                 </div>
 
@@ -33,22 +33,22 @@
             <section>
                 <h2>Respiratory and heart symptoms</h2>
                 <div>
-                    <input type="checkbox" name="langs" id="langs_breath" value="breath" checked> <label
+                    <input type="checkbox" name="langs" id="langs_breath" value="breath" > <label
                         for="langs_breath">Difficulty breathing or shortness of breath</label>
                 </div>
 
                 <div>
-                    <input type="checkbox" name="langs" id="langs_cough" value="cough" checked> <label
+                    <input type="checkbox" name="langs" id="langs_cough" value="cough" > <label
                         for="langs_cough">Cough</label>
                 </div>
 
                 <div>
-                    <input type="checkbox" name="langs" id="langs_chestpain" value="chestpain" checked> <label
+                    <input type="checkbox" name="langs" id="langs_chestpain" value="chestpain" > <label
                         for="langs_chestpain">Chest pain</label>
                 </div>
 
                 <div>
-                    <input type="checkbox" name="langs" id="langs_heart" value="heart" checked> <label
+                    <input type="checkbox" name="langs" id="langs_heart" value="heart" > <label
                         for="langs_heart">Heart palpitations</label>
                 </div>
             </section>
@@ -56,37 +56,37 @@
             <section>
                 <h2>Neurological symptoms</h2>
                 <div>
-                    <input type="checkbox" name="langs" id="langs_brain" value="brain" checked> <label
+                    <input type="checkbox" name="langs" id="langs_brain" value="brain" > <label
                         for="langs_brain">Brain fog</label>
                 </div>
 
                 <div>
-                    <input type="checkbox" name="langs" id="langs_heart" value="heart" checked> <label
+                    <input type="checkbox" name="langs" id="langs_heart" value="heart" > <label
                         for="langs_heart">Headache</label>
                 </div>
 
                 <div>
-                    <input type="checkbox" name="langs" id="langs_sleep" value="sleep" checked> <label
+                    <input type="checkbox" name="langs" id="langs_sleep" value="sleep" > <label
                         for="langs_sleep"> Sleep problems</label>
                 </div>
 
                 <div>
-                    <input type="checkbox" name="langs" id="langs_lh" value="lh" checked> <label
+                    <input type="checkbox" name="langs" id="langs_lh" value="lh" > <label
                         for="langs_lh">Lightheadedness when standing up</label>
                 </div>
 
                 <div>
-                    <input type="checkbox" name="langs" id="langs_pn" value="pn" checked> <label
+                    <input type="checkbox" name="langs" id="langs_pn" value="pn" > <label
                         for="langs_pn">Pins-and-needles feelings</label>
                 </div>
 
                 <div>
-                    <input type="checkbox" name="langs" id="langs_smell" value="smell" checked> <label
+                    <input type="checkbox" name="langs" id="langs_smell" value="smell" > <label
                         for="langs_smell">Change in smell or taste</label>
                 </div>
 
                 <div>
-                    <input type="checkbox" name="langs" id="langs_da" value="da" checked> <label
+                    <input type="checkbox" name="langs" id="langs_da" value="da" > <label
                         for="langs_da">Depression or anxiety</label>
                 </div>
             </section>
@@ -94,12 +94,12 @@
             <section>
                 <h2>Digestive symptoms</h2>
                 <div>
-                    <input type="checkbox" name="langs" id="langs_diarrhea" value="" checked> <label
+                    <input type="checkbox" name="langs" id="langs_diarrhea" value="" > <label
                         for="langs_diarrhea">Diarrhea</label>
                 </div>
 
                 <div>
-                    <input type="checkbox" name="langs" id="langs_stomach" value="stomach" checked> <label
+                    <input type="checkbox" name="langs" id="langs_stomach" value="stomach" > <label
                         for="langs_stomach">Stomach pain</label>
                 </div>
             </section>
@@ -107,22 +107,22 @@
             <section>
                 <h2>Other symptoms</h2>
                 <div>
-                    <input type="checkbox" name="langs" id="langs_jm" value="jm" checked> <label for="langs_jm">Joint or
+                    <input type="checkbox" name="langs" id="langs_jm" value="jm" > <label for="langs_jm">Joint or
                         muscle pain</label>
                 </div>
 
                 <div>
-                    <input type="checkbox" name="langs" id="langs_rash" value="rash" checked> <label
+                    <input type="checkbox" name="langs" id="langs_rash" value="rash" > <label
                         for="langs_rash">Rash</label>
                 </div>
 
                 <div>
-                    <input type="checkbox" name="langs" id="langs_period" value="period" checked> <label
+                    <input type="checkbox" name="langs" id="langs_period" value="period" > <label
                         for="langs_period">Changes in menstrual cycles</label>
                 </div>
 
                 <div>
-                    <input type="checkbox" name="langs" id="langs_other" value="other" checked> <label
+                    <input type="checkbox" name="langs" id="langs_other" value="other" > <label
                         for="langs_other">Other</label>
                 </div>
             </section>

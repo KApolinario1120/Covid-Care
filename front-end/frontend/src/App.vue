@@ -54,7 +54,8 @@ nav {
   /* flex-direction: row; */
   font-size: 25px;
   /* border: 5px solid rgb(223, 139, 50);  */
-  background-color: rgb(236, 194, 111);
+  /* background-color: rgb(236, 194, 111); */
+  background-color: goldenrod;
   border-radius: 10px;
   /* margin: 15px 20px 15px 20px; */
   color: white;

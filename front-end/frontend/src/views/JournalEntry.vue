@@ -163,73 +163,21 @@ export default {
     name: 'journal-entry',
     data() {
         return {
-            ingredients: [],
-            ingredient: '',
-            ingredientMeasurement: null,
-            ingredientQuantity: null,
-            appliances: [],
-            appliance: '',
-            name: '',
-            recipePhoto: '',
-            description: '',
-            instructions: '',
-            servings: null,
-            difficulty: 1,
-            ingredientList: [],
-            // List of search ingredients returned from DB
-            applianceList: []
+            symptomList: [],
+            journalEntry: {}
         }
     },
     methods: {
         addSymptomToArray() {
             console.log(this.symptoms)
-            // TODO
-            let ingredientObject = {
-                ingredient_id: null,
-                name: this.ingredient,
-                quantity: this.ingredientQuantity,
-                measurement: this.ingredientMeasurement
-            }
-            for (let index = 0; index < this.ingredientList.length; index++) {
-                if (this.ingredient.toLowerCase().trim() === this.ingredientList[index].name.toLowerCase().trim()) {
-                    ingredientObject.ingredient_id = this.ingredientList[index].id;
-                }
-            }
-            if (ingredientObject.quantity == null || ingredientObject.quantity == '' || ingredientObject.measurement == null || ingredientObject.measurement == '') {
-                alert("Ingredient needs measurement and quantity.");
-            } else {
-                this.ingredients.push(ingredientObject);
-                console.log(this.ingredients);
-            }
+            return null;
 
         },
-        removeIngredientFromArray(ingredient) {
-            this.ingredients = this.ingredients.filter(element => {
-                return element !== ingredient;
-            })
-        },
-        addApplianceToArray() {
-            let applianceObject = {
-                id: null,
-                name: this.appliance
-            }
-            for (let index = 0; index < this.applianceList.length; index++) {
-                if (this.appliance.toLowerCase().trim() === this.applianceList[index].name.toLowerCase().trim()) {
-                    applianceObject.id = this.applianceList[index].id;
-                }
-            }
-            this.appliances.push(applianceObject);
-            console.log(this.appliances);
-        },
-        removeApplianceFromArray(appliance) {
-            this.appliances = this.appliances.filter(element => {
-                return element !== appliance;
-            })
-        },
-        submitRecipe() {
+
+        submitJournal() {
             console.log(this.getRecipe);
             if (this.name !== '' && this.instructions !== '') {
-                AuthService.addRecipe(this.getRecipe)
+                AuthService.addJournalEntry(this.getRecipe)
                     .then((response) => {
                         console.log(response.data);
                         this.$router.push('/recipes/' + response.data.id);
@@ -238,6 +186,7 @@ export default {
                 alert("Recipe name and instructions cannot be empty");
             }
         },
+
         searchIngredientList() {
             this.ingredientList = [];
             if (this.ingredient !== '') {
